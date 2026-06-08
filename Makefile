@@ -1,4 +1,4 @@
-.PHONY: api-inventory check-api-inventory build example test cover cover-html libraw-check lint vet fmt clean check
+.PHONY: api-inventory check-api-inventory generate build example test cover cover-html libraw-check lint vet fmt clean check
 
 LIBRAW_HEADERS ?= testdata/headers/libraw
 
@@ -35,6 +35,11 @@ libraw-check:
 # Regenerate the LibRaw API inventory and coverage map.
 api-inventory:
 	go run ./cmd/libraw-api-inventory -headers "$(LIBRAW_HEADERS)" -update-coverage
+
+# Regenerate Go files from checked-in LibRaw fixture headers.
+generate:
+	go run ./tools/gen-constants
+	gofmt -w constants_generated.go
 
 # Verify committed LibRaw API inventory and coverage map are current.
 check-api-inventory:

@@ -50,3 +50,13 @@ func Version() string {
 func VersionNumber() int {
 	return int(C.libraw_versionNumber())
 }
+
+// StrError returns the LibRaw message for an error code.
+func StrError(code int) string {
+	return C.GoString(C.libraw_strerror(C.int(code)))
+}
+
+// StrProgress returns the LibRaw message for a progress stage.
+func StrProgress(progress int) string {
+	return C.GoString(C.libraw_strprogress(C.enum_LibRaw_progress(progress)))
+}

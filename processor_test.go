@@ -25,6 +25,16 @@ func TestNewProcessorCloseIsIdempotent(t *testing.T) {
 	}
 }
 
+func TestNewProcessorWithFlags(t *testing.T) {
+	p, err := NewProcessor(WithFlags(0), nil)
+	if err != nil {
+		t.Fatalf("NewProcessor(WithFlags(0), nil) error = %v", err)
+	}
+	if err := p.Close(); err != nil {
+		t.Fatalf("Close() error = %v", err)
+	}
+}
+
 func TestNilProcessorCloseIsSafe(t *testing.T) {
 	var p *Processor
 	if err := p.Close(); err != nil {

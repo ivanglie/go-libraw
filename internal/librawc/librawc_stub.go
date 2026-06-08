@@ -28,3 +28,13 @@ func Version() string {
 func VersionNumber() int {
 	return 0
 }
+
+// StrError returns an empty string when cgo is disabled.
+func StrError(int) string {
+	return ""
+}
+
+// StrProgress returns an empty string when cgo is disabled.
+func StrProgress(int) string {
+	return ""
+}

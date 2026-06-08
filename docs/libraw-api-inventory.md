@@ -65,8 +65,8 @@ Statuses:
 | `libraw_set_output_tif` | `libraw.h` | `deferred` | tracked for a future workflowr task |
 | `libraw_set_progress_handler` | `libraw.h` | `deferred` | tracked for a future workflowr task |
 | `libraw_set_user_mul` | `libraw.h` | `deferred` | tracked for a future workflowr task |
-| `libraw_strerror` | `libraw.h` | `deferred` | tracked for a future workflowr task |
-| `libraw_strprogress` | `libraw.h` | `deferred` | tracked for a future workflowr task |
+| `libraw_strerror` | `libraw.h` | `wrapped` | exposed as StrError and ErrorCode.String |
+| `libraw_strprogress` | `libraw.h` | `wrapped` | exposed as StrProgress and Progress.String |
 | `libraw_subtract_black` | `libraw.h` | `deferred` | tracked for a future workflowr task |
 | `libraw_unpack` | `libraw.h` | `deferred` | tracked for a future workflowr task |
 | `libraw_unpack_function_name` | `libraw.h` | `deferred` | tracked for a future workflowr task |
@@ -79,107 +79,107 @@ Statuses:
 
 | Symbol | Header | Status | Note |
 | --- | --- | --- | --- |
-| `LIBRAW_SONY_FOCUSMODEmodes` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LibRawImageAspects` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LibRaw_As_Shot_WB_Applied_codes` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LibRaw_Canon_RecordModes` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LibRaw_ExifTagTypes` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LibRaw_HasselbladFormatCodes` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LibRaw_KodakSensors` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LibRaw_MultiExposure_related` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LibRaw_Sony_0x2010_Type` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LibRaw_Sony_0x9050_Type` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LibRaw_camera_formats` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LibRaw_camera_mounts` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LibRaw_cameramaker_index` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LibRaw_colorspace` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LibRaw_constructor_flags` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LibRaw_decoder_flags` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LibRaw_dng_processing` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LibRaw_dngfields_marks` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LibRaw_errors` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LibRaw_exceptions` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LibRaw_image_formats` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LibRaw_internal_thumbnail_formats` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LibRaw_lens_focal_types` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LibRaw_minolta_bayerpatterns` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LibRaw_minolta_storagemethods` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LibRaw_open_flags` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LibRaw_openbayer_patterns` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LibRaw_output_flags` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LibRaw_processing_options` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LibRaw_progress` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LibRaw_rawspecial_t` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LibRaw_rawspeed_bits_t` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LibRaw_runtime_capabilities` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LibRaw_sony_cameratypes` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LibRaw_thumbnail_formats` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LibRaw_warnings` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LibRaw_whitebalance_code` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
+| `LIBRAW_SONY_FOCUSMODEmodes` | `libraw_const.h` | `wrapped` | generated constants expose enum members |
+| `LibRawImageAspects` | `libraw_const.h` | `wrapped` | generated constants expose enum members |
+| `LibRaw_As_Shot_WB_Applied_codes` | `libraw_const.h` | `wrapped` | generated constants expose enum members |
+| `LibRaw_Canon_RecordModes` | `libraw_const.h` | `wrapped` | generated constants expose enum members |
+| `LibRaw_ExifTagTypes` | `libraw_const.h` | `wrapped` | generated constants expose enum members |
+| `LibRaw_HasselbladFormatCodes` | `libraw_const.h` | `wrapped` | generated constants expose enum members |
+| `LibRaw_KodakSensors` | `libraw_const.h` | `wrapped` | generated constants expose enum members |
+| `LibRaw_MultiExposure_related` | `libraw_const.h` | `wrapped` | generated constants expose enum members |
+| `LibRaw_Sony_0x2010_Type` | `libraw_const.h` | `wrapped` | generated constants expose enum members |
+| `LibRaw_Sony_0x9050_Type` | `libraw_const.h` | `wrapped` | generated constants expose enum members |
+| `LibRaw_camera_formats` | `libraw_const.h` | `wrapped` | generated constants expose enum members |
+| `LibRaw_camera_mounts` | `libraw_const.h` | `wrapped` | generated constants expose enum members |
+| `LibRaw_cameramaker_index` | `libraw_const.h` | `wrapped` | generated constants expose enum members |
+| `LibRaw_colorspace` | `libraw_const.h` | `wrapped` | generated constants expose enum members |
+| `LibRaw_constructor_flags` | `libraw_const.h` | `wrapped` | generated constants expose enum members |
+| `LibRaw_decoder_flags` | `libraw_const.h` | `wrapped` | generated constants expose enum members |
+| `LibRaw_dng_processing` | `libraw_const.h` | `wrapped` | generated constants expose enum members |
+| `LibRaw_dngfields_marks` | `libraw_const.h` | `wrapped` | generated constants expose enum members |
+| `LibRaw_errors` | `libraw_const.h` | `wrapped` | generated constants expose enum members |
+| `LibRaw_exceptions` | `libraw_const.h` | `wrapped` | generated constants expose enum members |
+| `LibRaw_image_formats` | `libraw_const.h` | `wrapped` | generated constants expose enum members |
+| `LibRaw_internal_thumbnail_formats` | `libraw_const.h` | `wrapped` | generated constants expose enum members |
+| `LibRaw_lens_focal_types` | `libraw_const.h` | `wrapped` | generated constants expose enum members |
+| `LibRaw_minolta_bayerpatterns` | `libraw_const.h` | `wrapped` | generated constants expose enum members |
+| `LibRaw_minolta_storagemethods` | `libraw_const.h` | `wrapped` | generated constants expose enum members |
+| `LibRaw_open_flags` | `libraw_const.h` | `wrapped` | generated constants expose enum members |
+| `LibRaw_openbayer_patterns` | `libraw_const.h` | `wrapped` | generated constants expose enum members |
+| `LibRaw_output_flags` | `libraw_const.h` | `wrapped` | generated constants expose enum members |
+| `LibRaw_processing_options` | `libraw_const.h` | `wrapped` | generated constants expose enum members |
+| `LibRaw_progress` | `libraw_const.h` | `wrapped` | generated constants expose enum members |
+| `LibRaw_rawspecial_t` | `libraw_const.h` | `wrapped` | generated constants expose enum members |
+| `LibRaw_rawspeed_bits_t` | `libraw_const.h` | `wrapped` | generated constants expose enum members |
+| `LibRaw_runtime_capabilities` | `libraw_const.h` | `wrapped` | generated constants expose enum members |
+| `LibRaw_sony_cameratypes` | `libraw_const.h` | `wrapped` | generated constants expose enum members |
+| `LibRaw_thumbnail_formats` | `libraw_const.h` | `wrapped` | generated constants expose enum members |
+| `LibRaw_warnings` | `libraw_const.h` | `wrapped` | generated constants expose enum members |
+| `LibRaw_whitebalance_code` | `libraw_const.h` | `wrapped` | generated constants expose enum members |
 
 ## Macros
 
 | Symbol | Header | Status | Note |
 | --- | --- | --- | --- |
-| `LIBRAW_AFDATA_MAXCOUNT` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_AHD_TILE` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_CBLACK_SIZE` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_CHECK_VERSION` | `libraw_version.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_COMPILE_CHECK_VERSION` | `libraw_version.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_COMPILE_CHECK_VERSION_NOTLESS` | `libraw_version.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_CR3_MEMPOOL` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_CRXTRACKS_MAXCOUNT` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_DEFAULT_ADJUST_MAXIMUM_THRESHOLD` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_DEFAULT_AUTO_BRIGHTNESS_THRESHOLD` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_EXIFTOOLTAGTYPE_binary` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_EXIFTOOLTAGTYPE_complex` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_EXIFTOOLTAGTYPE_double` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_EXIFTOOLTAGTYPE_float` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_EXIFTOOLTAGTYPE_ifd` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_EXIFTOOLTAGTYPE_ifd64` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_EXIFTOOLTAGTYPE_int16s` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_EXIFTOOLTAGTYPE_int16u` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_EXIFTOOLTAGTYPE_int32s` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_EXIFTOOLTAGTYPE_int32u` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_EXIFTOOLTAGTYPE_int64s` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_EXIFTOOLTAGTYPE_int64u` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_EXIFTOOLTAGTYPE_int8s` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_EXIFTOOLTAGTYPE_int8u` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_EXIFTOOLTAGTYPE_rational64s` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_EXIFTOOLTAGTYPE_rational64u` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_EXIFTOOLTAGTYPE_string` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_EXIFTOOLTAGTYPE_undef` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_EXIFTOOLTAGTYPE_unicode` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_FATAL_ERROR` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_IFD_MAXCOUNT` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_IOSPACE_CHECK` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_LENS_NOT_SET` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_MAKE_VERSION` | `libraw_version.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_MAX_ALLOC_MB_DEFAULT` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_MAX_CR3_RAW_FILE_SIZE` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_MAX_DNG_RAW_FILE_SIZE` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_MAX_METADATA_BLOCKS` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_MAX_NONDNG_RAW_FILE_SIZE` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_MAX_PROFILE_SIZE_MB` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_MAX_THUMBNAIL_MB` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_MEMPOOL_CHECK` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_NO_IOSTREAMS_DATASTREAM` | `libraw.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_OWN_SWAB` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_PROGRESS_THUMB_MASK` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_RUNTIME_CHECK_VERSION_EXACT` | `libraw_version.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_RUNTIME_CHECK_VERSION_NOTLESS` | `libraw_version.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_SHLIB_AGE` | `libraw_version.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_SHLIB_CURRENT` | `libraw_version.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_SHLIB_REVISION` | `libraw_version.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_THUMBNAIL_MAXCOUNT` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_USE_OPENMP` | `libraw_types.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_USE_STREAMS_DATASTREAM_MAXSIZE` | `libraw.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_VERSION_MAKE` | `libraw_version.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_WIN32_CALLS` | `libraw.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_WIN32_DLLDEFS` | `libraw.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_WIN32_UNICODEPATHS` | `libraw.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_X3F_ALLOC_LIMIT_MB` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_XTRANS` | `libraw_const.h` | `deferred` | tracked for a future workflowr task |
+| `LIBRAW_AFDATA_MAXCOUNT` | `libraw_const.h` | `wrapped` | generated from value-like macro |
+| `LIBRAW_AHD_TILE` | `libraw_const.h` | `wrapped` | generated from value-like macro |
+| `LIBRAW_CBLACK_SIZE` | `libraw_const.h` | `wrapped` | generated from value-like macro |
+| `LIBRAW_CHECK_VERSION` | `libraw_version.h` | `unsupported` | preprocessor switch or function-like macro not exposed as a Go constant |
+| `LIBRAW_COMPILE_CHECK_VERSION` | `libraw_version.h` | `unsupported` | preprocessor switch or function-like macro not exposed as a Go constant |
+| `LIBRAW_COMPILE_CHECK_VERSION_NOTLESS` | `libraw_version.h` | `unsupported` | preprocessor switch or function-like macro not exposed as a Go constant |
+| `LIBRAW_CR3_MEMPOOL` | `libraw_const.h` | `unsupported` | preprocessor switch or function-like macro not exposed as a Go constant |
+| `LIBRAW_CRXTRACKS_MAXCOUNT` | `libraw_const.h` | `wrapped` | generated from value-like macro |
+| `LIBRAW_DEFAULT_ADJUST_MAXIMUM_THRESHOLD` | `libraw_const.h` | `wrapped` | generated from value-like macro |
+| `LIBRAW_DEFAULT_AUTO_BRIGHTNESS_THRESHOLD` | `libraw_const.h` | `wrapped` | generated from value-like macro |
+| `LIBRAW_EXIFTOOLTAGTYPE_binary` | `libraw_const.h` | `wrapped` | generated from value-like macro |
+| `LIBRAW_EXIFTOOLTAGTYPE_complex` | `libraw_const.h` | `wrapped` | generated from value-like macro |
+| `LIBRAW_EXIFTOOLTAGTYPE_double` | `libraw_const.h` | `wrapped` | generated from value-like macro |
+| `LIBRAW_EXIFTOOLTAGTYPE_float` | `libraw_const.h` | `wrapped` | generated from value-like macro |
+| `LIBRAW_EXIFTOOLTAGTYPE_ifd` | `libraw_const.h` | `wrapped` | generated from value-like macro |
+| `LIBRAW_EXIFTOOLTAGTYPE_ifd64` | `libraw_const.h` | `wrapped` | generated from value-like macro |
+| `LIBRAW_EXIFTOOLTAGTYPE_int16s` | `libraw_const.h` | `wrapped` | generated from value-like macro |
+| `LIBRAW_EXIFTOOLTAGTYPE_int16u` | `libraw_const.h` | `wrapped` | generated from value-like macro |
+| `LIBRAW_EXIFTOOLTAGTYPE_int32s` | `libraw_const.h` | `wrapped` | generated from value-like macro |
+| `LIBRAW_EXIFTOOLTAGTYPE_int32u` | `libraw_const.h` | `wrapped` | generated from value-like macro |
+| `LIBRAW_EXIFTOOLTAGTYPE_int64s` | `libraw_const.h` | `wrapped` | generated from value-like macro |
+| `LIBRAW_EXIFTOOLTAGTYPE_int64u` | `libraw_const.h` | `wrapped` | generated from value-like macro |
+| `LIBRAW_EXIFTOOLTAGTYPE_int8s` | `libraw_const.h` | `wrapped` | generated from value-like macro |
+| `LIBRAW_EXIFTOOLTAGTYPE_int8u` | `libraw_const.h` | `wrapped` | generated from value-like macro |
+| `LIBRAW_EXIFTOOLTAGTYPE_rational64s` | `libraw_const.h` | `wrapped` | generated from value-like macro |
+| `LIBRAW_EXIFTOOLTAGTYPE_rational64u` | `libraw_const.h` | `wrapped` | generated from value-like macro |
+| `LIBRAW_EXIFTOOLTAGTYPE_string` | `libraw_const.h` | `wrapped` | generated from value-like macro |
+| `LIBRAW_EXIFTOOLTAGTYPE_undef` | `libraw_const.h` | `wrapped` | generated from value-like macro |
+| `LIBRAW_EXIFTOOLTAGTYPE_unicode` | `libraw_const.h` | `wrapped` | generated from value-like macro |
+| `LIBRAW_FATAL_ERROR` | `libraw_const.h` | `unsupported` | preprocessor switch or function-like macro not exposed as a Go constant |
+| `LIBRAW_IFD_MAXCOUNT` | `libraw_const.h` | `wrapped` | generated from value-like macro |
+| `LIBRAW_IOSPACE_CHECK` | `libraw_const.h` | `unsupported` | preprocessor switch or function-like macro not exposed as a Go constant |
+| `LIBRAW_LENS_NOT_SET` | `libraw_const.h` | `wrapped` | generated from value-like macro |
+| `LIBRAW_MAKE_VERSION` | `libraw_version.h` | `unsupported` | preprocessor switch or function-like macro not exposed as a Go constant |
+| `LIBRAW_MAX_ALLOC_MB_DEFAULT` | `libraw_const.h` | `wrapped` | generated from value-like macro |
+| `LIBRAW_MAX_CR3_RAW_FILE_SIZE` | `libraw_const.h` | `wrapped` | generated from value-like macro |
+| `LIBRAW_MAX_DNG_RAW_FILE_SIZE` | `libraw_const.h` | `wrapped` | generated from value-like macro |
+| `LIBRAW_MAX_METADATA_BLOCKS` | `libraw_const.h` | `wrapped` | generated from value-like macro |
+| `LIBRAW_MAX_NONDNG_RAW_FILE_SIZE` | `libraw_const.h` | `wrapped` | generated from value-like macro |
+| `LIBRAW_MAX_PROFILE_SIZE_MB` | `libraw_const.h` | `wrapped` | generated from value-like macro |
+| `LIBRAW_MAX_THUMBNAIL_MB` | `libraw_const.h` | `wrapped` | generated from value-like macro |
+| `LIBRAW_MEMPOOL_CHECK` | `libraw_const.h` | `unsupported` | preprocessor switch or function-like macro not exposed as a Go constant |
+| `LIBRAW_NO_IOSTREAMS_DATASTREAM` | `libraw.h` | `unsupported` | preprocessor switch or function-like macro not exposed as a Go constant |
+| `LIBRAW_OWN_SWAB` | `libraw_const.h` | `unsupported` | preprocessor switch or function-like macro not exposed as a Go constant |
+| `LIBRAW_PROGRESS_THUMB_MASK` | `libraw_const.h` | `wrapped` | generated from value-like macro |
+| `LIBRAW_RUNTIME_CHECK_VERSION_EXACT` | `libraw_version.h` | `unsupported` | preprocessor switch or function-like macro not exposed as a Go constant |
+| `LIBRAW_RUNTIME_CHECK_VERSION_NOTLESS` | `libraw_version.h` | `unsupported` | preprocessor switch or function-like macro not exposed as a Go constant |
+| `LIBRAW_SHLIB_AGE` | `libraw_version.h` | `wrapped` | generated from value-like macro |
+| `LIBRAW_SHLIB_CURRENT` | `libraw_version.h` | `wrapped` | generated from value-like macro |
+| `LIBRAW_SHLIB_REVISION` | `libraw_version.h` | `wrapped` | generated from value-like macro |
+| `LIBRAW_THUMBNAIL_MAXCOUNT` | `libraw_const.h` | `wrapped` | generated from value-like macro |
+| `LIBRAW_USE_OPENMP` | `libraw_types.h` | `unsupported` | preprocessor switch or function-like macro not exposed as a Go constant |
+| `LIBRAW_USE_STREAMS_DATASTREAM_MAXSIZE` | `libraw.h` | `unsupported` | preprocessor switch or function-like macro not exposed as a Go constant |
+| `LIBRAW_VERSION_MAKE` | `libraw_version.h` | `unsupported` | preprocessor switch or function-like macro not exposed as a Go constant |
+| `LIBRAW_WIN32_CALLS` | `libraw.h` | `unsupported` | preprocessor switch or function-like macro not exposed as a Go constant |
+| `LIBRAW_WIN32_DLLDEFS` | `libraw.h` | `unsupported` | preprocessor switch or function-like macro not exposed as a Go constant |
+| `LIBRAW_WIN32_UNICODEPATHS` | `libraw.h` | `unsupported` | preprocessor switch or function-like macro not exposed as a Go constant |
+| `LIBRAW_X3F_ALLOC_LIMIT_MB` | `libraw_const.h` | `wrapped` | generated from value-like macro |
+| `LIBRAW_XTRANS` | `libraw_const.h` | `wrapped` | generated from value-like macro |
 
 ## Structs
 
@@ -234,10 +234,10 @@ Statuses:
 
 | Symbol | Header | Status | Note |
 | --- | --- | --- | --- |
-| `LIBRAW_MAJOR_VERSION` | `libraw_version.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_MINOR_VERSION` | `libraw_version.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_PATCH_VERSION` | `libraw_version.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_VERSION` | `libraw_version.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_VERSION_STR` | `libraw_version.h` | `deferred` | tracked for a future workflowr task |
-| `LIBRAW_VERSION_TAIL` | `libraw_version.h` | `deferred` | tracked for a future workflowr task |
+| `LIBRAW_MAJOR_VERSION` | `libraw_version.h` | `wrapped` | generated numeric version constant |
+| `LIBRAW_MINOR_VERSION` | `libraw_version.h` | `wrapped` | generated numeric version constant |
+| `LIBRAW_PATCH_VERSION` | `libraw_version.h` | `wrapped` | generated numeric version constant |
+| `LIBRAW_VERSION` | `libraw_version.h` | `wrapped` | generated numeric version constant |
+| `LIBRAW_VERSION_STR` | `libraw_version.h` | `wrapped` | exposed at runtime via Version |
+| `LIBRAW_VERSION_TAIL` | `libraw_version.h` | `unsupported` | non-numeric preprocessor token not exposed as a Go constant |
 

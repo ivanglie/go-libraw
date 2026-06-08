@@ -1,41 +1,41 @@
 # kind	name	status	note
-enum	LIBRAW_SONY_FOCUSMODEmodes	deferred	tracked for a future workflowr task
-enum	LibRawImageAspects	deferred	tracked for a future workflowr task
-enum	LibRaw_As_Shot_WB_Applied_codes	deferred	tracked for a future workflowr task
-enum	LibRaw_Canon_RecordModes	deferred	tracked for a future workflowr task
-enum	LibRaw_ExifTagTypes	deferred	tracked for a future workflowr task
-enum	LibRaw_HasselbladFormatCodes	deferred	tracked for a future workflowr task
-enum	LibRaw_KodakSensors	deferred	tracked for a future workflowr task
-enum	LibRaw_MultiExposure_related	deferred	tracked for a future workflowr task
-enum	LibRaw_Sony_0x2010_Type	deferred	tracked for a future workflowr task
-enum	LibRaw_Sony_0x9050_Type	deferred	tracked for a future workflowr task
-enum	LibRaw_camera_formats	deferred	tracked for a future workflowr task
-enum	LibRaw_camera_mounts	deferred	tracked for a future workflowr task
-enum	LibRaw_cameramaker_index	deferred	tracked for a future workflowr task
-enum	LibRaw_colorspace	deferred	tracked for a future workflowr task
-enum	LibRaw_constructor_flags	deferred	tracked for a future workflowr task
-enum	LibRaw_decoder_flags	deferred	tracked for a future workflowr task
-enum	LibRaw_dng_processing	deferred	tracked for a future workflowr task
-enum	LibRaw_dngfields_marks	deferred	tracked for a future workflowr task
-enum	LibRaw_errors	deferred	tracked for a future workflowr task
-enum	LibRaw_exceptions	deferred	tracked for a future workflowr task
-enum	LibRaw_image_formats	deferred	tracked for a future workflowr task
-enum	LibRaw_internal_thumbnail_formats	deferred	tracked for a future workflowr task
-enum	LibRaw_lens_focal_types	deferred	tracked for a future workflowr task
-enum	LibRaw_minolta_bayerpatterns	deferred	tracked for a future workflowr task
-enum	LibRaw_minolta_storagemethods	deferred	tracked for a future workflowr task
-enum	LibRaw_open_flags	deferred	tracked for a future workflowr task
-enum	LibRaw_openbayer_patterns	deferred	tracked for a future workflowr task
-enum	LibRaw_output_flags	deferred	tracked for a future workflowr task
-enum	LibRaw_processing_options	deferred	tracked for a future workflowr task
-enum	LibRaw_progress	deferred	tracked for a future workflowr task
-enum	LibRaw_rawspecial_t	deferred	tracked for a future workflowr task
-enum	LibRaw_rawspeed_bits_t	deferred	tracked for a future workflowr task
-enum	LibRaw_runtime_capabilities	deferred	tracked for a future workflowr task
-enum	LibRaw_sony_cameratypes	deferred	tracked for a future workflowr task
-enum	LibRaw_thumbnail_formats	deferred	tracked for a future workflowr task
-enum	LibRaw_warnings	deferred	tracked for a future workflowr task
-enum	LibRaw_whitebalance_code	deferred	tracked for a future workflowr task
+enum	LIBRAW_SONY_FOCUSMODEmodes	wrapped	generated constants expose enum members
+enum	LibRawImageAspects	wrapped	generated constants expose enum members
+enum	LibRaw_As_Shot_WB_Applied_codes	wrapped	generated constants expose enum members
+enum	LibRaw_Canon_RecordModes	wrapped	generated constants expose enum members
+enum	LibRaw_ExifTagTypes	wrapped	generated constants expose enum members
+enum	LibRaw_HasselbladFormatCodes	wrapped	generated constants expose enum members
+enum	LibRaw_KodakSensors	wrapped	generated constants expose enum members
+enum	LibRaw_MultiExposure_related	wrapped	generated constants expose enum members
+enum	LibRaw_Sony_0x2010_Type	wrapped	generated constants expose enum members
+enum	LibRaw_Sony_0x9050_Type	wrapped	generated constants expose enum members
+enum	LibRaw_camera_formats	wrapped	generated constants expose enum members
+enum	LibRaw_camera_mounts	wrapped	generated constants expose enum members
+enum	LibRaw_cameramaker_index	wrapped	generated constants expose enum members
+enum	LibRaw_colorspace	wrapped	generated constants expose enum members
+enum	LibRaw_constructor_flags	wrapped	generated constants expose enum members
+enum	LibRaw_decoder_flags	wrapped	generated constants expose enum members
+enum	LibRaw_dng_processing	wrapped	generated constants expose enum members
+enum	LibRaw_dngfields_marks	wrapped	generated constants expose enum members
+enum	LibRaw_errors	wrapped	generated constants expose enum members
+enum	LibRaw_exceptions	wrapped	generated constants expose enum members
+enum	LibRaw_image_formats	wrapped	generated constants expose enum members
+enum	LibRaw_internal_thumbnail_formats	wrapped	generated constants expose enum members
+enum	LibRaw_lens_focal_types	wrapped	generated constants expose enum members
+enum	LibRaw_minolta_bayerpatterns	wrapped	generated constants expose enum members
+enum	LibRaw_minolta_storagemethods	wrapped	generated constants expose enum members
+enum	LibRaw_open_flags	wrapped	generated constants expose enum members
+enum	LibRaw_openbayer_patterns	wrapped	generated constants expose enum members
+enum	LibRaw_output_flags	wrapped	generated constants expose enum members
+enum	LibRaw_processing_options	wrapped	generated constants expose enum members
+enum	LibRaw_progress	wrapped	generated constants expose enum members
+enum	LibRaw_rawspecial_t	wrapped	generated constants expose enum members
+enum	LibRaw_rawspeed_bits_t	wrapped	generated constants expose enum members
+enum	LibRaw_runtime_capabilities	wrapped	generated constants expose enum members
+enum	LibRaw_sony_cameratypes	wrapped	generated constants expose enum members
+enum	LibRaw_thumbnail_formats	wrapped	generated constants expose enum members
+enum	LibRaw_warnings	wrapped	generated constants expose enum members
+enum	LibRaw_whitebalance_code	wrapped	generated constants expose enum members
 function	libraw_COLOR	deferred	tracked for a future workflowr task
 function	libraw_adjust_sizes_info_only	deferred	tracked for a future workflowr task
 function	libraw_adjust_to_raw_inset_crop	deferred	tracked for a future workflowr task
@@ -85,8 +85,8 @@ function	libraw_set_output_color	deferred	tracked for a future workflowr task
 function	libraw_set_output_tif	deferred	tracked for a future workflowr task
 function	libraw_set_progress_handler	deferred	tracked for a future workflowr task
 function	libraw_set_user_mul	deferred	tracked for a future workflowr task
-function	libraw_strerror	deferred	tracked for a future workflowr task
-function	libraw_strprogress	deferred	tracked for a future workflowr task
+function	libraw_strerror	wrapped	exposed as StrError and ErrorCode.String
+function	libraw_strprogress	wrapped	exposed as StrProgress and Progress.String
 function	libraw_subtract_black	deferred	tracked for a future workflowr task
 function	libraw_unpack	deferred	tracked for a future workflowr task
 function	libraw_unpack_function_name	deferred	tracked for a future workflowr task
@@ -94,65 +94,65 @@ function	libraw_unpack_thumb	deferred	tracked for a future workflowr task
 function	libraw_unpack_thumb_ex	deferred	tracked for a future workflowr task
 function	libraw_version	wrapped	exposed as Version
 function	libraw_versionNumber	wrapped	exposed as VersionNumber
-macro	LIBRAW_AFDATA_MAXCOUNT	deferred	tracked for a future workflowr task
-macro	LIBRAW_AHD_TILE	deferred	tracked for a future workflowr task
-macro	LIBRAW_CBLACK_SIZE	deferred	tracked for a future workflowr task
-macro	LIBRAW_CHECK_VERSION	deferred	tracked for a future workflowr task
-macro	LIBRAW_COMPILE_CHECK_VERSION	deferred	tracked for a future workflowr task
-macro	LIBRAW_COMPILE_CHECK_VERSION_NOTLESS	deferred	tracked for a future workflowr task
-macro	LIBRAW_CR3_MEMPOOL	deferred	tracked for a future workflowr task
-macro	LIBRAW_CRXTRACKS_MAXCOUNT	deferred	tracked for a future workflowr task
-macro	LIBRAW_DEFAULT_ADJUST_MAXIMUM_THRESHOLD	deferred	tracked for a future workflowr task
-macro	LIBRAW_DEFAULT_AUTO_BRIGHTNESS_THRESHOLD	deferred	tracked for a future workflowr task
-macro	LIBRAW_EXIFTOOLTAGTYPE_binary	deferred	tracked for a future workflowr task
-macro	LIBRAW_EXIFTOOLTAGTYPE_complex	deferred	tracked for a future workflowr task
-macro	LIBRAW_EXIFTOOLTAGTYPE_double	deferred	tracked for a future workflowr task
-macro	LIBRAW_EXIFTOOLTAGTYPE_float	deferred	tracked for a future workflowr task
-macro	LIBRAW_EXIFTOOLTAGTYPE_ifd	deferred	tracked for a future workflowr task
-macro	LIBRAW_EXIFTOOLTAGTYPE_ifd64	deferred	tracked for a future workflowr task
-macro	LIBRAW_EXIFTOOLTAGTYPE_int16s	deferred	tracked for a future workflowr task
-macro	LIBRAW_EXIFTOOLTAGTYPE_int16u	deferred	tracked for a future workflowr task
-macro	LIBRAW_EXIFTOOLTAGTYPE_int32s	deferred	tracked for a future workflowr task
-macro	LIBRAW_EXIFTOOLTAGTYPE_int32u	deferred	tracked for a future workflowr task
-macro	LIBRAW_EXIFTOOLTAGTYPE_int64s	deferred	tracked for a future workflowr task
-macro	LIBRAW_EXIFTOOLTAGTYPE_int64u	deferred	tracked for a future workflowr task
-macro	LIBRAW_EXIFTOOLTAGTYPE_int8s	deferred	tracked for a future workflowr task
-macro	LIBRAW_EXIFTOOLTAGTYPE_int8u	deferred	tracked for a future workflowr task
-macro	LIBRAW_EXIFTOOLTAGTYPE_rational64s	deferred	tracked for a future workflowr task
-macro	LIBRAW_EXIFTOOLTAGTYPE_rational64u	deferred	tracked for a future workflowr task
-macro	LIBRAW_EXIFTOOLTAGTYPE_string	deferred	tracked for a future workflowr task
-macro	LIBRAW_EXIFTOOLTAGTYPE_undef	deferred	tracked for a future workflowr task
-macro	LIBRAW_EXIFTOOLTAGTYPE_unicode	deferred	tracked for a future workflowr task
-macro	LIBRAW_FATAL_ERROR	deferred	tracked for a future workflowr task
-macro	LIBRAW_IFD_MAXCOUNT	deferred	tracked for a future workflowr task
-macro	LIBRAW_IOSPACE_CHECK	deferred	tracked for a future workflowr task
-macro	LIBRAW_LENS_NOT_SET	deferred	tracked for a future workflowr task
-macro	LIBRAW_MAKE_VERSION	deferred	tracked for a future workflowr task
-macro	LIBRAW_MAX_ALLOC_MB_DEFAULT	deferred	tracked for a future workflowr task
-macro	LIBRAW_MAX_CR3_RAW_FILE_SIZE	deferred	tracked for a future workflowr task
-macro	LIBRAW_MAX_DNG_RAW_FILE_SIZE	deferred	tracked for a future workflowr task
-macro	LIBRAW_MAX_METADATA_BLOCKS	deferred	tracked for a future workflowr task
-macro	LIBRAW_MAX_NONDNG_RAW_FILE_SIZE	deferred	tracked for a future workflowr task
-macro	LIBRAW_MAX_PROFILE_SIZE_MB	deferred	tracked for a future workflowr task
-macro	LIBRAW_MAX_THUMBNAIL_MB	deferred	tracked for a future workflowr task
-macro	LIBRAW_MEMPOOL_CHECK	deferred	tracked for a future workflowr task
-macro	LIBRAW_NO_IOSTREAMS_DATASTREAM	deferred	tracked for a future workflowr task
-macro	LIBRAW_OWN_SWAB	deferred	tracked for a future workflowr task
-macro	LIBRAW_PROGRESS_THUMB_MASK	deferred	tracked for a future workflowr task
-macro	LIBRAW_RUNTIME_CHECK_VERSION_EXACT	deferred	tracked for a future workflowr task
-macro	LIBRAW_RUNTIME_CHECK_VERSION_NOTLESS	deferred	tracked for a future workflowr task
-macro	LIBRAW_SHLIB_AGE	deferred	tracked for a future workflowr task
-macro	LIBRAW_SHLIB_CURRENT	deferred	tracked for a future workflowr task
-macro	LIBRAW_SHLIB_REVISION	deferred	tracked for a future workflowr task
-macro	LIBRAW_THUMBNAIL_MAXCOUNT	deferred	tracked for a future workflowr task
-macro	LIBRAW_USE_OPENMP	deferred	tracked for a future workflowr task
-macro	LIBRAW_USE_STREAMS_DATASTREAM_MAXSIZE	deferred	tracked for a future workflowr task
-macro	LIBRAW_VERSION_MAKE	deferred	tracked for a future workflowr task
-macro	LIBRAW_WIN32_CALLS	deferred	tracked for a future workflowr task
-macro	LIBRAW_WIN32_DLLDEFS	deferred	tracked for a future workflowr task
-macro	LIBRAW_WIN32_UNICODEPATHS	deferred	tracked for a future workflowr task
-macro	LIBRAW_X3F_ALLOC_LIMIT_MB	deferred	tracked for a future workflowr task
-macro	LIBRAW_XTRANS	deferred	tracked for a future workflowr task
+macro	LIBRAW_AFDATA_MAXCOUNT	wrapped	generated from value-like macro
+macro	LIBRAW_AHD_TILE	wrapped	generated from value-like macro
+macro	LIBRAW_CBLACK_SIZE	wrapped	generated from value-like macro
+macro	LIBRAW_CHECK_VERSION	unsupported	preprocessor switch or function-like macro not exposed as a Go constant
+macro	LIBRAW_COMPILE_CHECK_VERSION	unsupported	preprocessor switch or function-like macro not exposed as a Go constant
+macro	LIBRAW_COMPILE_CHECK_VERSION_NOTLESS	unsupported	preprocessor switch or function-like macro not exposed as a Go constant
+macro	LIBRAW_CR3_MEMPOOL	unsupported	preprocessor switch or function-like macro not exposed as a Go constant
+macro	LIBRAW_CRXTRACKS_MAXCOUNT	wrapped	generated from value-like macro
+macro	LIBRAW_DEFAULT_ADJUST_MAXIMUM_THRESHOLD	wrapped	generated from value-like macro
+macro	LIBRAW_DEFAULT_AUTO_BRIGHTNESS_THRESHOLD	wrapped	generated from value-like macro
+macro	LIBRAW_EXIFTOOLTAGTYPE_binary	wrapped	generated from value-like macro
+macro	LIBRAW_EXIFTOOLTAGTYPE_complex	wrapped	generated from value-like macro
+macro	LIBRAW_EXIFTOOLTAGTYPE_double	wrapped	generated from value-like macro
+macro	LIBRAW_EXIFTOOLTAGTYPE_float	wrapped	generated from value-like macro
+macro	LIBRAW_EXIFTOOLTAGTYPE_ifd	wrapped	generated from value-like macro
+macro	LIBRAW_EXIFTOOLTAGTYPE_ifd64	wrapped	generated from value-like macro
+macro	LIBRAW_EXIFTOOLTAGTYPE_int16s	wrapped	generated from value-like macro
+macro	LIBRAW_EXIFTOOLTAGTYPE_int16u	wrapped	generated from value-like macro
+macro	LIBRAW_EXIFTOOLTAGTYPE_int32s	wrapped	generated from value-like macro
+macro	LIBRAW_EXIFTOOLTAGTYPE_int32u	wrapped	generated from value-like macro
+macro	LIBRAW_EXIFTOOLTAGTYPE_int64s	wrapped	generated from value-like macro
+macro	LIBRAW_EXIFTOOLTAGTYPE_int64u	wrapped	generated from value-like macro
+macro	LIBRAW_EXIFTOOLTAGTYPE_int8s	wrapped	generated from value-like macro
+macro	LIBRAW_EXIFTOOLTAGTYPE_int8u	wrapped	generated from value-like macro
+macro	LIBRAW_EXIFTOOLTAGTYPE_rational64s	wrapped	generated from value-like macro
+macro	LIBRAW_EXIFTOOLTAGTYPE_rational64u	wrapped	generated from value-like macro
+macro	LIBRAW_EXIFTOOLTAGTYPE_string	wrapped	generated from value-like macro
+macro	LIBRAW_EXIFTOOLTAGTYPE_undef	wrapped	generated from value-like macro
+macro	LIBRAW_EXIFTOOLTAGTYPE_unicode	wrapped	generated from value-like macro
+macro	LIBRAW_FATAL_ERROR	unsupported	preprocessor switch or function-like macro not exposed as a Go constant
+macro	LIBRAW_IFD_MAXCOUNT	wrapped	generated from value-like macro
+macro	LIBRAW_IOSPACE_CHECK	unsupported	preprocessor switch or function-like macro not exposed as a Go constant
+macro	LIBRAW_LENS_NOT_SET	wrapped	generated from value-like macro
+macro	LIBRAW_MAKE_VERSION	unsupported	preprocessor switch or function-like macro not exposed as a Go constant
+macro	LIBRAW_MAX_ALLOC_MB_DEFAULT	wrapped	generated from value-like macro
+macro	LIBRAW_MAX_CR3_RAW_FILE_SIZE	wrapped	generated from value-like macro
+macro	LIBRAW_MAX_DNG_RAW_FILE_SIZE	wrapped	generated from value-like macro
+macro	LIBRAW_MAX_METADATA_BLOCKS	wrapped	generated from value-like macro
+macro	LIBRAW_MAX_NONDNG_RAW_FILE_SIZE	wrapped	generated from value-like macro
+macro	LIBRAW_MAX_PROFILE_SIZE_MB	wrapped	generated from value-like macro
+macro	LIBRAW_MAX_THUMBNAIL_MB	wrapped	generated from value-like macro
+macro	LIBRAW_MEMPOOL_CHECK	unsupported	preprocessor switch or function-like macro not exposed as a Go constant
+macro	LIBRAW_NO_IOSTREAMS_DATASTREAM	unsupported	preprocessor switch or function-like macro not exposed as a Go constant
+macro	LIBRAW_OWN_SWAB	unsupported	preprocessor switch or function-like macro not exposed as a Go constant
+macro	LIBRAW_PROGRESS_THUMB_MASK	wrapped	generated from value-like macro
+macro	LIBRAW_RUNTIME_CHECK_VERSION_EXACT	unsupported	preprocessor switch or function-like macro not exposed as a Go constant
+macro	LIBRAW_RUNTIME_CHECK_VERSION_NOTLESS	unsupported	preprocessor switch or function-like macro not exposed as a Go constant
+macro	LIBRAW_SHLIB_AGE	wrapped	generated from value-like macro
+macro	LIBRAW_SHLIB_CURRENT	wrapped	generated from value-like macro
+macro	LIBRAW_SHLIB_REVISION	wrapped	generated from value-like macro
+macro	LIBRAW_THUMBNAIL_MAXCOUNT	wrapped	generated from value-like macro
+macro	LIBRAW_USE_OPENMP	unsupported	preprocessor switch or function-like macro not exposed as a Go constant
+macro	LIBRAW_USE_STREAMS_DATASTREAM_MAXSIZE	unsupported	preprocessor switch or function-like macro not exposed as a Go constant
+macro	LIBRAW_VERSION_MAKE	unsupported	preprocessor switch or function-like macro not exposed as a Go constant
+macro	LIBRAW_WIN32_CALLS	unsupported	preprocessor switch or function-like macro not exposed as a Go constant
+macro	LIBRAW_WIN32_DLLDEFS	unsupported	preprocessor switch or function-like macro not exposed as a Go constant
+macro	LIBRAW_WIN32_UNICODEPATHS	unsupported	preprocessor switch or function-like macro not exposed as a Go constant
+macro	LIBRAW_X3F_ALLOC_LIMIT_MB	wrapped	generated from value-like macro
+macro	LIBRAW_XTRANS	wrapped	generated from value-like macro
 struct	libraw_P1_color_t	deferred	tracked for a future workflowr task
 struct	libraw_afinfo_item_t	deferred	tracked for a future workflowr task
 struct	libraw_area_t	deferred	tracked for a future workflowr task
@@ -197,9 +197,9 @@ struct	libraw_sony_info_t	deferred	tracked for a future workflowr task
 struct	libraw_thumbnail_item_t	deferred	tracked for a future workflowr task
 struct	libraw_thumbnail_list_t	deferred	tracked for a future workflowr task
 struct	libraw_thumbnail_t	deferred	tracked for a future workflowr task
-version	LIBRAW_MAJOR_VERSION	deferred	tracked for a future workflowr task
-version	LIBRAW_MINOR_VERSION	deferred	tracked for a future workflowr task
-version	LIBRAW_PATCH_VERSION	deferred	tracked for a future workflowr task
-version	LIBRAW_VERSION	deferred	tracked for a future workflowr task
-version	LIBRAW_VERSION_STR	deferred	tracked for a future workflowr task
-version	LIBRAW_VERSION_TAIL	deferred	tracked for a future workflowr task
+version	LIBRAW_MAJOR_VERSION	wrapped	generated numeric version constant
+version	LIBRAW_MINOR_VERSION	wrapped	generated numeric version constant
+version	LIBRAW_PATCH_VERSION	wrapped	generated numeric version constant
+version	LIBRAW_VERSION	wrapped	generated numeric version constant
+version	LIBRAW_VERSION_STR	wrapped	exposed at runtime via Version
+version	LIBRAW_VERSION_TAIL	unsupported	non-numeric preprocessor token not exposed as a Go constant
