@@ -144,6 +144,115 @@ func (h *Handle) RecycleDatastream() {
 	C.libraw_recycle_datastream(h.ptr)
 }
 
+// Unpack decodes RAW pixel data and returns the LibRaw status code.
+func (h *Handle) Unpack() int {
+	return int(C.libraw_unpack(h.ptr))
+}
+
+// UnpackThumb decodes the embedded thumbnail and returns the LibRaw status code.
+func (h *Handle) UnpackThumb() int {
+	return int(C.libraw_unpack_thumb(h.ptr))
+}
+
+// UnpackThumbEx decodes the thumbnail at index and returns the status code.
+func (h *Handle) UnpackThumbEx(index int) int {
+	return int(C.libraw_unpack_thumb_ex(h.ptr, C.int(index)))
+}
+
+// SubtractBlack applies the black-level subtraction pass.
+func (h *Handle) SubtractBlack() {
+	C.libraw_subtract_black(h.ptr)
+}
+
+// Raw2Image copies unpacked RAW data into the imgdata image buffer and returns
+// the LibRaw status code.
+func (h *Handle) Raw2Image() int {
+	return int(C.libraw_raw2image(h.ptr))
+}
+
+// FreeImage releases the imgdata image buffer.
+func (h *Handle) FreeImage() {
+	C.libraw_free_image(h.ptr)
+}
+
+// AdjustSizesInfoOnly recomputes output sizes without producing an image and
+// returns the LibRaw status code.
+func (h *Handle) AdjustSizesInfoOnly() int {
+	return int(C.libraw_adjust_sizes_info_only(h.ptr))
+}
+
+// DcrawProcess runs the dcraw-equivalent postprocessing and returns the status code.
+func (h *Handle) DcrawProcess() int {
+	return int(C.libraw_dcraw_process(h.ptr))
+}
+
+// DcrawPPMTiffWriter writes the processed image to fname as PPM or TIFF
+// depending on output params and returns the LibRaw status code.
+func (h *Handle) DcrawPPMTiffWriter(fname string) int {
+	cname := C.CString(fname)
+	defer C.free(unsafe.Pointer(cname))
+	return int(C.libraw_dcraw_ppm_tiff_writer(h.ptr, cname))
+}
+
+// DcrawThumbWriter writes the unpacked thumbnail to fname and returns the status code.
+func (h *Handle) DcrawThumbWriter(fname string) int {
+	cname := C.CString(fname)
+	defer C.free(unsafe.Pointer(cname))
+	return int(C.libraw_dcraw_thumb_writer(h.ptr, cname))
+}
+
+// ProcessedImage is a Go copy of a libraw_processed_image_t. Its bytes are owned
+// by Go; the underlying C allocation is freed before the value is returned.
+type ProcessedImage struct {
+	Type   int
+	Height uint16
+	Width  uint16
+	Colors uint16
+	Bits   uint16
+	Data   []byte
+}
+
+// MakeMemImage renders the processed image into memory and returns a Go copy
+// plus the LibRaw status code. The C allocation is freed before returning.
+func (h *Handle) MakeMemImage() (ProcessedImage, int) {
+	var errc C.int
+	img := C.libraw_dcraw_make_mem_image(h.ptr, &errc)
+	return convertProcessedImage(img, errc)
+}
+
+// MakeMemThumb renders the unpacked thumbnail into memory and returns a Go copy
+// plus the LibRaw status code. The C allocation is freed before returning.
+func (h *Handle) MakeMemThumb() (ProcessedImage, int) {
+	var errc C.int
+	img := C.libraw_dcraw_make_mem_thumb(h.ptr, &errc)
+	return convertProcessedImage(img, errc)
+}
+
+// convertProcessedImage copies a libraw_processed_image_t into Go memory and
+// frees the C allocation. A nil image is reported as a non-zero status code.
+func convertProcessedImage(img *C.libraw_processed_image_t, errc C.int) (ProcessedImage, int) {
+	if img == nil {
+		code := int(errc)
+		if code == 0 {
+			code = -1
+		}
+		return ProcessedImage{}, code
+	}
+	defer C.libraw_dcraw_clear_mem(img)
+
+	pi := ProcessedImage{
+		Type:   int(img._type),
+		Height: uint16(img.height),
+		Width:  uint16(img.width),
+		Colors: uint16(img.colors),
+		Bits:   uint16(img.bits),
+	}
+	if img.data_size > 0 {
+		pi.Data = C.GoBytes(unsafe.Pointer(&img.data[0]), C.int(img.data_size))
+	}
+	return pi, int(errc)
+}
+
 // Version returns the linked LibRaw runtime version string.
 func Version() string {
 	return C.GoString(C.libraw_version())

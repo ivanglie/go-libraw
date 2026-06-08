@@ -84,7 +84,14 @@ Avoid committing generated images. Add cleanup hooks or write to `tmp/outputs/` 
 
 - Question: Should example output be JPEG, TIFF, or PPM?
 - Recommended default: use the closest LibRaw-supported writer path first; document format explicitly.
-- Answer:
+- Answer: PPM. It is LibRaw's native `dcraw_ppm_tiff_writer` output (no extra encoder/dependency). The example writes `tmp/outputs/RAW_CANON_6D.ppm`, a git-ignored path, avoiding committed generated images.
+
+## Implementation Outcome
+
+- Wrapped unpack (`Unpack`, `UnpackThumb`, `UnpackThumbEx`), `SubtractBlack`, `Raw2Image`, `FreeImage`, `AdjustSizesInfoOnly`, `DcrawProcess`, writers (`WritePPMTiff`, `WriteThumb`), and in-memory renderers (`MemImage`, `MemThumb`).
+- `MemImage`/`MemThumb` copy `libraw_processed_image_t` into Go-owned bytes and free the C allocation via `libraw_dcraw_clear_mem` before returning, so callers have nothing to release.
+- `_example` now develops `RAW_CANON_6D.CR2` end to end into `tmp/outputs/RAW_CANON_6D.ppm`; `make clean` removes `tmp/outputs`.
+- Note: `libraw_dcraw_make_mem_image`/`_thumb` are not in the generated API inventory because their declarations span two header lines (the regex matches single-line `DllDef ... name(`); they are still wrapped. Tracked as an inventory limitation, not a coverage gap.
 
 ## Git And PR
 

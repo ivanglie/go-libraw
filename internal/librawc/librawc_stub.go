@@ -60,6 +60,56 @@ func (h *Handle) Recycle() {}
 // RecycleDatastream is a no-op when cgo is disabled.
 func (h *Handle) RecycleDatastream() {}
 
+// Unpack reports that cgo is required for LibRaw.
+func (h *Handle) Unpack() int { return int(errorCodeCGODisabled) }
+
+// UnpackThumb reports that cgo is required for LibRaw.
+func (h *Handle) UnpackThumb() int { return int(errorCodeCGODisabled) }
+
+// UnpackThumbEx reports that cgo is required for LibRaw.
+func (h *Handle) UnpackThumbEx(int) int { return int(errorCodeCGODisabled) }
+
+// SubtractBlack is a no-op when cgo is disabled.
+func (h *Handle) SubtractBlack() {}
+
+// Raw2Image reports that cgo is required for LibRaw.
+func (h *Handle) Raw2Image() int { return int(errorCodeCGODisabled) }
+
+// FreeImage is a no-op when cgo is disabled.
+func (h *Handle) FreeImage() {}
+
+// AdjustSizesInfoOnly reports that cgo is required for LibRaw.
+func (h *Handle) AdjustSizesInfoOnly() int { return int(errorCodeCGODisabled) }
+
+// DcrawProcess reports that cgo is required for LibRaw.
+func (h *Handle) DcrawProcess() int { return int(errorCodeCGODisabled) }
+
+// DcrawPPMTiffWriter reports that cgo is required for LibRaw.
+func (h *Handle) DcrawPPMTiffWriter(string) int { return int(errorCodeCGODisabled) }
+
+// DcrawThumbWriter reports that cgo is required for LibRaw.
+func (h *Handle) DcrawThumbWriter(string) int { return int(errorCodeCGODisabled) }
+
+// ProcessedImage is a Go copy of a libraw_processed_image_t.
+type ProcessedImage struct {
+	Type   int
+	Height uint16
+	Width  uint16
+	Colors uint16
+	Bits   uint16
+	Data   []byte
+}
+
+// MakeMemImage reports that cgo is required for LibRaw.
+func (h *Handle) MakeMemImage() (ProcessedImage, int) {
+	return ProcessedImage{}, int(errorCodeCGODisabled)
+}
+
+// MakeMemThumb reports that cgo is required for LibRaw.
+func (h *Handle) MakeMemThumb() (ProcessedImage, int) {
+	return ProcessedImage{}, int(errorCodeCGODisabled)
+}
+
 // Version returns an empty version when cgo is disabled.
 func Version() string {
 	return ""

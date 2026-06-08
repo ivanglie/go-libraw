@@ -17,17 +17,17 @@ Statuses:
 | Symbol | Header | Status | Note |
 | --- | --- | --- | --- |
 | `libraw_COLOR` | `libraw.h` | `deferred` | tracked for a future workflowr task |
-| `libraw_adjust_sizes_info_only` | `libraw.h` | `deferred` | tracked for a future workflowr task |
+| `libraw_adjust_sizes_info_only` | `libraw.h` | `wrapped` | wrapped by Processor.AdjustSizesInfoOnly |
 | `libraw_adjust_to_raw_inset_crop` | `libraw.h` | `deferred` | tracked for a future workflowr task |
 | `libraw_cameraCount` | `libraw.h` | `deferred` | tracked for a future workflowr task |
 | `libraw_cameraList` | `libraw.h` | `deferred` | tracked for a future workflowr task |
 | `libraw_capabilities` | `libraw.h` | `deferred` | tracked for a future workflowr task |
 | `libraw_close` | `libraw.h` | `internal` | used by Processor.Close |
-| `libraw_dcraw_clear_mem` | `libraw.h` | `deferred` | tracked for a future workflowr task |
-| `libraw_dcraw_ppm_tiff_writer` | `libraw.h` | `deferred` | tracked for a future workflowr task |
-| `libraw_dcraw_process` | `libraw.h` | `deferred` | tracked for a future workflowr task |
-| `libraw_dcraw_thumb_writer` | `libraw.h` | `deferred` | tracked for a future workflowr task |
-| `libraw_free_image` | `libraw.h` | `deferred` | tracked for a future workflowr task |
+| `libraw_dcraw_clear_mem` | `libraw.h` | `internal` | used by Processor.MemImage and MemThumb |
+| `libraw_dcraw_ppm_tiff_writer` | `libraw.h` | `wrapped` | wrapped by Processor.WritePPMTiff |
+| `libraw_dcraw_process` | `libraw.h` | `wrapped` | wrapped by Processor.DcrawProcess |
+| `libraw_dcraw_thumb_writer` | `libraw.h` | `wrapped` | wrapped by Processor.WriteThumb |
+| `libraw_free_image` | `libraw.h` | `wrapped` | wrapped by Processor.FreeImage |
 | `libraw_get_cam_mul` | `libraw.h` | `deferred` | tracked for a future workflowr task |
 | `libraw_get_color_maximum` | `libraw.h` | `deferred` | tracked for a future workflowr task |
 | `libraw_get_decoder_info` | `libraw.h` | `deferred` | tracked for a future workflowr task |
@@ -47,7 +47,7 @@ Statuses:
 | `libraw_open_file_ex` | `libraw.h` | `unsupported` | removed from default 0.22 build via LIBRAW_NO_IOSTREAMS_DATASTREAM |
 | `libraw_open_wfile` | `libraw.h` | `deferred` | tracked for a future workflowr task |
 | `libraw_open_wfile_ex` | `libraw.h` | `deferred` | tracked for a future workflowr task |
-| `libraw_raw2image` | `libraw.h` | `deferred` | tracked for a future workflowr task |
+| `libraw_raw2image` | `libraw.h` | `wrapped` | wrapped by Processor.Raw2Image |
 | `libraw_recycle` | `libraw.h` | `wrapped` | wrapped by Processor.Recycle |
 | `libraw_recycle_datastream` | `libraw.h` | `wrapped` | wrapped by Processor.RecycleDatastream |
 | `libraw_set_adjust_maximum_thr` | `libraw.h` | `deferred` | tracked for a future workflowr task |
@@ -67,11 +67,11 @@ Statuses:
 | `libraw_set_user_mul` | `libraw.h` | `deferred` | tracked for a future workflowr task |
 | `libraw_strerror` | `libraw.h` | `wrapped` | exposed as StrError and ErrorCode.String |
 | `libraw_strprogress` | `libraw.h` | `wrapped` | exposed as StrProgress and Progress.String |
-| `libraw_subtract_black` | `libraw.h` | `deferred` | tracked for a future workflowr task |
-| `libraw_unpack` | `libraw.h` | `deferred` | tracked for a future workflowr task |
+| `libraw_subtract_black` | `libraw.h` | `wrapped` | wrapped by Processor.SubtractBlack |
+| `libraw_unpack` | `libraw.h` | `wrapped` | wrapped by Processor.Unpack |
 | `libraw_unpack_function_name` | `libraw.h` | `deferred` | tracked for a future workflowr task |
-| `libraw_unpack_thumb` | `libraw.h` | `deferred` | tracked for a future workflowr task |
-| `libraw_unpack_thumb_ex` | `libraw.h` | `deferred` | tracked for a future workflowr task |
+| `libraw_unpack_thumb` | `libraw.h` | `wrapped` | wrapped by Processor.UnpackThumb |
+| `libraw_unpack_thumb_ex` | `libraw.h` | `wrapped` | wrapped by Processor.UnpackThumbEx |
 | `libraw_version` | `libraw.h` | `wrapped` | exposed as Version |
 | `libraw_versionNumber` | `libraw.h` | `wrapped` | exposed as VersionNumber |
 

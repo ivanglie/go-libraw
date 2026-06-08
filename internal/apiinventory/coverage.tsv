@@ -37,17 +37,17 @@ enum	LibRaw_thumbnail_formats	wrapped	generated constants expose enum members
 enum	LibRaw_warnings	wrapped	generated constants expose enum members
 enum	LibRaw_whitebalance_code	wrapped	generated constants expose enum members
 function	libraw_COLOR	deferred	tracked for a future workflowr task
-function	libraw_adjust_sizes_info_only	deferred	tracked for a future workflowr task
+function	libraw_adjust_sizes_info_only	wrapped	wrapped by Processor.AdjustSizesInfoOnly
 function	libraw_adjust_to_raw_inset_crop	deferred	tracked for a future workflowr task
 function	libraw_cameraCount	deferred	tracked for a future workflowr task
 function	libraw_cameraList	deferred	tracked for a future workflowr task
 function	libraw_capabilities	deferred	tracked for a future workflowr task
 function	libraw_close	internal	used by Processor.Close
-function	libraw_dcraw_clear_mem	deferred	tracked for a future workflowr task
-function	libraw_dcraw_ppm_tiff_writer	deferred	tracked for a future workflowr task
-function	libraw_dcraw_process	deferred	tracked for a future workflowr task
-function	libraw_dcraw_thumb_writer	deferred	tracked for a future workflowr task
-function	libraw_free_image	deferred	tracked for a future workflowr task
+function	libraw_dcraw_clear_mem	internal	used by Processor.MemImage and MemThumb
+function	libraw_dcraw_ppm_tiff_writer	wrapped	wrapped by Processor.WritePPMTiff
+function	libraw_dcraw_process	wrapped	wrapped by Processor.DcrawProcess
+function	libraw_dcraw_thumb_writer	wrapped	wrapped by Processor.WriteThumb
+function	libraw_free_image	wrapped	wrapped by Processor.FreeImage
 function	libraw_get_cam_mul	deferred	tracked for a future workflowr task
 function	libraw_get_color_maximum	deferred	tracked for a future workflowr task
 function	libraw_get_decoder_info	deferred	tracked for a future workflowr task
@@ -67,7 +67,7 @@ function	libraw_open_file	wrapped	wrapped by Processor.OpenFile
 function	libraw_open_file_ex	unsupported	removed from default 0.22 build via LIBRAW_NO_IOSTREAMS_DATASTREAM
 function	libraw_open_wfile	deferred	tracked for a future workflowr task
 function	libraw_open_wfile_ex	deferred	tracked for a future workflowr task
-function	libraw_raw2image	deferred	tracked for a future workflowr task
+function	libraw_raw2image	wrapped	wrapped by Processor.Raw2Image
 function	libraw_recycle	wrapped	wrapped by Processor.Recycle
 function	libraw_recycle_datastream	wrapped	wrapped by Processor.RecycleDatastream
 function	libraw_set_adjust_maximum_thr	deferred	tracked for a future workflowr task
@@ -87,11 +87,11 @@ function	libraw_set_progress_handler	deferred	tracked for a future workflowr tas
 function	libraw_set_user_mul	deferred	tracked for a future workflowr task
 function	libraw_strerror	wrapped	exposed as StrError and ErrorCode.String
 function	libraw_strprogress	wrapped	exposed as StrProgress and Progress.String
-function	libraw_subtract_black	deferred	tracked for a future workflowr task
-function	libraw_unpack	deferred	tracked for a future workflowr task
+function	libraw_subtract_black	wrapped	wrapped by Processor.SubtractBlack
+function	libraw_unpack	wrapped	wrapped by Processor.Unpack
 function	libraw_unpack_function_name	deferred	tracked for a future workflowr task
-function	libraw_unpack_thumb	deferred	tracked for a future workflowr task
-function	libraw_unpack_thumb_ex	deferred	tracked for a future workflowr task
+function	libraw_unpack_thumb	wrapped	wrapped by Processor.UnpackThumb
+function	libraw_unpack_thumb_ex	wrapped	wrapped by Processor.UnpackThumbEx
 function	libraw_version	wrapped	exposed as Version
 function	libraw_versionNumber	wrapped	exposed as VersionNumber
 macro	LIBRAW_AFDATA_MAXCOUNT	wrapped	generated from value-like macro

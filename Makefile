@@ -45,7 +45,7 @@ generate:
 check-api-inventory:
 	go run ./cmd/libraw-api-inventory -headers "$(LIBRAW_HEADERS)" -check
 
-# Develops the bundled sample RAW to RAW_CANON_6D.jpg (run from the repo root).
+# Develops the bundled sample RAW to tmp/outputs/RAW_CANON_6D.ppm (run from the repo root).
 example:
 	go run ./_example
 
@@ -73,5 +73,6 @@ lint:
 
 clean:
 	rm -f coverage.out coverage.html testdata/*.jpg
+	rm -rf tmp/outputs
 
 check: libraw-check check-api-inventory build vet lint test
