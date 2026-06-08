@@ -40,7 +40,6 @@ func TestOutputParamsRoundTrip(t *testing.T) {
 		AdjustMaximumThr: 0.7,
 		NoAutoBright:     1,
 		UseFujiRotate:    1,
-		UseP1Correction:  1,
 		GreenMatching:    1,
 		DCBIterations:    2,
 		DCBEnhanceFL:     1,
@@ -50,6 +49,9 @@ func TestOutputParamsRoundTrip(t *testing.T) {
 		ExpPreser:        0.75,
 		NoAutoScale:      1,
 		NoInterpolation:  1,
+	}
+	if VersionNumber() >= 0x1600 {
+		want.UseP1Correction = 1
 	}
 
 	if err := p.SetOutputParams(want); err != nil {

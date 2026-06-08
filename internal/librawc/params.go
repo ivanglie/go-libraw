@@ -5,6 +5,24 @@ package librawc
 /*
 #include <stdlib.h>
 #include <libraw/libraw.h>
+
+static int go_libraw_get_use_p1_correction(libraw_output_params_t *p) {
+#if LIBRAW_VERSION >= LIBRAW_MAKE_VERSION(0,22,0)
+	return p->use_p1_correction;
+#else
+	(void)p;
+	return 0;
+#endif
+}
+
+static void go_libraw_set_use_p1_correction(libraw_output_params_t *p, int v) {
+#if LIBRAW_VERSION >= LIBRAW_MAKE_VERSION(0,22,0)
+	p->use_p1_correction = v;
+#else
+	(void)p;
+	(void)v;
+#endif
+}
 */
 import "C"
 
@@ -102,7 +120,7 @@ func (h *Handle) GetOutputParams() OutputParams {
 		AdjustMaximumThr: float32(p.adjust_maximum_thr),
 		NoAutoBright:     int(p.no_auto_bright),
 		UseFujiRotate:    int(p.use_fuji_rotate),
-		UseP1Correction:  int(p.use_p1_correction),
+		UseP1Correction:  int(C.go_libraw_get_use_p1_correction(p)),
 		GreenMatching:    int(p.green_matching),
 		DCBIterations:    int(p.dcb_iterations),
 		DCBEnhanceFL:     int(p.dcb_enhance_fl),
@@ -151,7 +169,7 @@ func (h *Handle) SetOutputParams(in OutputParams) {
 	p.adjust_maximum_thr = C.float(in.AdjustMaximumThr)
 	p.no_auto_bright = C.int(in.NoAutoBright)
 	p.use_fuji_rotate = C.int(in.UseFujiRotate)
-	p.use_p1_correction = C.int(in.UseP1Correction)
+	C.go_libraw_set_use_p1_correction(p, C.int(in.UseP1Correction))
 	p.green_matching = C.int(in.GreenMatching)
 	p.dcb_iterations = C.int(in.DCBIterations)
 	p.dcb_enhance_fl = C.int(in.DCBEnhanceFL)
