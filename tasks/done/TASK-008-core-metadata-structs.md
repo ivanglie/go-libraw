@@ -82,7 +82,14 @@ Prefer copying metadata into Go-owned values so callers are not exposed to dangl
 
 - Question: Should metadata accessors return snapshots or live views into C data?
 - Recommended default: snapshots for safety.
-- Answer:
+- Answer: return Go-owned snapshots; C-owned pointers are summarized instead of exposed.
+
+## Implementation Outcome
+
+- Added `Processor.Metadata` with Go-owned snapshots for core metadata structs.
+- Added coverage for image params, image sizes, color data, lens info, shooting info, GPS/other metadata, thumbnails, and rawdata summary.
+- Documented field-level coverage and deferred pointer/vendor-maker-note fields in `docs/libraw-metadata-coverage.md`.
+- Added fixture tests for Canon, Nikon, Ricoh DNG, and Sony RAW samples.
 
 ## Git And PR
 
@@ -105,4 +112,3 @@ Prefer copying metadata into Go-owned values so callers are not exposed to dangl
 
 - Risk: field-by-field mapping is verbose and easy to miss.
 - Mitigation: make inventory coverage fail on unmapped fields.
-

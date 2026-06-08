@@ -185,50 +185,50 @@ Statuses:
 
 | Symbol | Header | Status | Note |
 | --- | --- | --- | --- |
-| `libraw_P1_color_t` | `libraw_types.h` | `deferred` | tracked for a future workflowr task |
+| `libraw_P1_color_t` | `libraw_types.h` | `wrapped` | wrapped by P1Color; field coverage documented in docs/libraw-metadata-coverage.md |
 | `libraw_afinfo_item_t` | `libraw_types.h` | `deferred` | tracked for a future workflowr task |
-| `libraw_area_t` | `libraw_types.h` | `deferred` | tracked for a future workflowr task |
+| `libraw_area_t` | `libraw_types.h` | `deferred` | only used by vendor maker notes in this task scope; see docs/libraw-metadata-coverage.md |
 | `libraw_callbacks_t` | `libraw_types.h` | `deferred` | tracked for a future workflowr task |
 | `libraw_canon_makernotes_t` | `libraw_types.h` | `deferred` | tracked for a future workflowr task |
-| `libraw_colordata_t` | `libraw_types.h` | `deferred` | tracked for a future workflowr task |
-| `libraw_custom_camera_t` | `libraw_types.h` | `deferred` | tracked for a future workflowr task |
-| `libraw_data_t` | `libraw_types.h` | `deferred` | tracked for a future workflowr task |
+| `libraw_colordata_t` | `libraw_types.h` | `wrapped` | wrapped by ColorData; pointer payloads summarized in docs/libraw-metadata-coverage.md |
+| `libraw_custom_camera_t` | `libraw_types.h` | `deferred` | decoder/custom camera work tracked for TASK-012 |
+| `libraw_data_t` | `libraw_types.h` | `wrapped` | wrapped by Metadata snapshot for core fields; params covered by TASK-007 and maker notes deferred |
 | `libraw_decoder_info_t` | `libraw_types.h` | `deferred` | tracked for a future workflowr task |
-| `libraw_dng_color_t` | `libraw_types.h` | `deferred` | tracked for a future workflowr task |
-| `libraw_dng_levels_t` | `libraw_types.h` | `deferred` | tracked for a future workflowr task |
-| `libraw_dng_rawopcode_t` | `libraw_types.h` | `deferred` | tracked for a future workflowr task |
-| `libraw_dnglens_t` | `libraw_types.h` | `deferred` | tracked for a future workflowr task |
+| `libraw_dng_color_t` | `libraw_types.h` | `wrapped` | wrapped by DNGColor |
+| `libraw_dng_levels_t` | `libraw_types.h` | `wrapped` | wrapped by DNGLevels; raw opcode payloads summarized |
+| `libraw_dng_rawopcode_t` | `libraw_types.h` | `wrapped` | wrapped by DNGRawOpcode summary |
+| `libraw_dnglens_t` | `libraw_types.h` | `wrapped` | wrapped by DNGLens |
 | `libraw_fuji_info_t` | `libraw_types.h` | `deferred` | tracked for a future workflowr task |
-| `libraw_gps_info_t` | `libraw_types.h` | `deferred` | tracked for a future workflowr task |
+| `libraw_gps_info_t` | `libraw_types.h` | `wrapped` | wrapped by GPSInfo |
 | `libraw_hasselblad_makernotes_t` | `libraw_types.h` | `deferred` | tracked for a future workflowr task |
-| `libraw_image_sizes_t` | `libraw_types.h` | `deferred` | tracked for a future workflowr task |
-| `libraw_imgother_t` | `libraw_types.h` | `deferred` | tracked for a future workflowr task |
-| `libraw_internal_output_params_t` | `libraw_types.h` | `deferred` | tracked for a future workflowr task |
-| `libraw_iparams_t` | `libraw_types.h` | `deferred` | tracked for a future workflowr task |
+| `libraw_image_sizes_t` | `libraw_types.h` | `wrapped` | wrapped by ImageSizes |
+| `libraw_imgother_t` | `libraw_types.h` | `wrapped` | wrapped by ImageOther |
+| `libraw_internal_output_params_t` | `libraw_types.h` | `wrapped` | wrapped by InternalOutputParams within RawDataSummary |
+| `libraw_iparams_t` | `libraw_types.h` | `wrapped` | wrapped by ImageParams |
 | `libraw_kodak_makernotes_t` | `libraw_types.h` | `deferred` | tracked for a future workflowr task |
-| `libraw_lensinfo_t` | `libraw_types.h` | `deferred` | tracked for a future workflowr task |
-| `libraw_makernotes_lens_t` | `libraw_types.h` | `deferred` | tracked for a future workflowr task |
+| `libraw_lensinfo_t` | `libraw_types.h` | `wrapped` | wrapped by LensInfo |
+| `libraw_makernotes_lens_t` | `libraw_types.h` | `wrapped` | wrapped by MakerNotesLens as generic lens metadata |
 | `libraw_makernotes_t` | `libraw_types.h` | `deferred` | tracked for a future workflowr task |
-| `libraw_metadata_common_t` | `libraw_types.h` | `deferred` | tracked for a future workflowr task |
+| `libraw_metadata_common_t` | `libraw_types.h` | `deferred` | vendor maker-note common metadata tracked for TASK-009 |
 | `libraw_nikon_makernotes_t` | `libraw_types.h` | `deferred` | tracked for a future workflowr task |
-| `libraw_nikonlens_t` | `libraw_types.h` | `deferred` | tracked for a future workflowr task |
+| `libraw_nikonlens_t` | `libraw_types.h` | `wrapped` | wrapped by NikonLens |
 | `libraw_olympus_makernotes_t` | `libraw_types.h` | `deferred` | tracked for a future workflowr task |
 | `libraw_output_params_t` | `libraw_types.h` | `wrapped` | wrapped by OutputParams; field coverage documented in docs/libraw-params-coverage.md |
 | `libraw_p1_makernotes_t` | `libraw_types.h` | `deferred` | tracked for a future workflowr task |
 | `libraw_panasonic_makernotes_t` | `libraw_types.h` | `deferred` | tracked for a future workflowr task |
 | `libraw_pentax_makernotes_t` | `libraw_types.h` | `deferred` | tracked for a future workflowr task |
-| `libraw_processed_image_t` | `libraw_types.h` | `deferred` | tracked for a future workflowr task |
-| `libraw_raw_inset_crop_t` | `libraw_types.h` | `deferred` | tracked for a future workflowr task |
+| `libraw_processed_image_t` | `libraw_types.h` | `wrapped` | wrapped by ProcessedImage |
+| `libraw_raw_inset_crop_t` | `libraw_types.h` | `wrapped` | wrapped by RawInsetCrop |
 | `libraw_raw_unpack_params_t` | `libraw_types.h` | `wrapped` | wrapped by RawUnpackParams except custom_camera_strings, documented unsupported in docs/libraw-params-coverage.md |
-| `libraw_rawdata_t` | `libraw_types.h` | `deferred` | tracked for a future workflowr task |
+| `libraw_rawdata_t` | `libraw_types.h` | `wrapped` | wrapped by RawDataSummary; raw pixel buffers summarized |
 | `libraw_ricoh_makernotes_t` | `libraw_types.h` | `deferred` | tracked for a future workflowr task |
 | `libraw_samsung_makernotes_t` | `libraw_types.h` | `deferred` | tracked for a future workflowr task |
 | `libraw_sensor_highspeed_crop_t` | `libraw_types.h` | `deferred` | tracked for a future workflowr task |
-| `libraw_shootinginfo_t` | `libraw_types.h` | `deferred` | tracked for a future workflowr task |
+| `libraw_shootinginfo_t` | `libraw_types.h` | `wrapped` | wrapped by ShootingInfo |
 | `libraw_sony_info_t` | `libraw_types.h` | `deferred` | tracked for a future workflowr task |
-| `libraw_thumbnail_item_t` | `libraw_types.h` | `deferred` | tracked for a future workflowr task |
-| `libraw_thumbnail_list_t` | `libraw_types.h` | `deferred` | tracked for a future workflowr task |
-| `libraw_thumbnail_t` | `libraw_types.h` | `deferred` | tracked for a future workflowr task |
+| `libraw_thumbnail_item_t` | `libraw_types.h` | `wrapped` | wrapped by ThumbnailItem |
+| `libraw_thumbnail_list_t` | `libraw_types.h` | `wrapped` | wrapped by ThumbnailList |
+| `libraw_thumbnail_t` | `libraw_types.h` | `wrapped` | wrapped by Thumbnail summary; data pointer not exposed |
 
 ## Versions
 
