@@ -35,6 +35,9 @@ jobs:
           go version
           pkg-config --modversion libraw
 
+      - name: Check LibRaw linkage
+        run: make libraw-check
+
       - name: Build
         run: make build
 
@@ -53,4 +56,3 @@ jobs:
           name: coverage
           path: coverage.out
           if-no-files-found: error
-

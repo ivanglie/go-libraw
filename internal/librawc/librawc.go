@@ -4,9 +4,11 @@
 package librawc
 
 /*
-#cgo darwin CFLAGS: -I/opt/homebrew/opt/libraw/include
-#cgo darwin LDFLAGS: -L/opt/homebrew/opt/libraw/lib -lraw
-#cgo linux LDFLAGS: -lraw
+#cgo linux pkg-config: libraw
+#cgo darwin,arm64 CFLAGS: -I/opt/homebrew/opt/libraw/include
+#cgo darwin,arm64 LDFLAGS: -L/opt/homebrew/opt/libraw/lib -lraw
+#cgo darwin,amd64 CFLAGS: -I/usr/local/opt/libraw/include
+#cgo darwin,amd64 LDFLAGS: -L/usr/local/opt/libraw/lib -lraw
 #include <libraw/libraw.h>
 */
 import "C"
