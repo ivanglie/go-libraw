@@ -29,16 +29,17 @@ import "C"
 
 // Metadata is a Go-owned snapshot of core LibRaw metadata.
 type Metadata struct {
-	Sizes     ImageSizes
-	ID        ImageParams
-	Lens      LensInfo
-	Shooting  ShootingInfo
-	Color     ColorData
-	Other     ImageOther
-	Thumbnail Thumbnail
-	Thumbs    ThumbnailList
-	RawData   RawDataSummary
-	Process   ProcessState
+	Sizes      ImageSizes
+	ID         ImageParams
+	Lens       LensInfo
+	Shooting   ShootingInfo
+	Color      ColorData
+	MakerNotes MakerNotes
+	Other      ImageOther
+	Thumbnail  Thumbnail
+	Thumbs     ThumbnailList
+	RawData    RawDataSummary
+	Process    ProcessState
 }
 
 // ProcessState reports LibRaw processing flags and warnings.
@@ -354,16 +355,17 @@ type RawDataSummary struct {
 func (h *Handle) GetMetadata() Metadata {
 	d := h.ptr
 	return Metadata{
-		Sizes:     convertImageSizes(&d.sizes),
-		ID:        convertImageParams(&d.idata),
-		Lens:      convertLensInfo(&d.lens),
-		Shooting:  convertShootingInfo(&d.shootinginfo),
-		Color:     convertColorData(&d.color),
-		Other:     convertImageOther(&d.other),
-		Thumbnail: convertThumbnail(&d.thumbnail),
-		Thumbs:    convertThumbnailList(&d.thumbs_list),
-		RawData:   convertRawDataSummary(&d.rawdata),
-		Process:   ProcessState{ProgressFlags: uint32(d.progress_flags), ProcessWarnings: uint32(d.process_warnings)},
+		Sizes:      convertImageSizes(&d.sizes),
+		ID:         convertImageParams(&d.idata),
+		Lens:       convertLensInfo(&d.lens),
+		Shooting:   convertShootingInfo(&d.shootinginfo),
+		Color:      convertColorData(&d.color),
+		MakerNotes: convertMakerNotes(&d.makernotes),
+		Other:      convertImageOther(&d.other),
+		Thumbnail:  convertThumbnail(&d.thumbnail),
+		Thumbs:     convertThumbnailList(&d.thumbs_list),
+		RawData:    convertRawDataSummary(&d.rawdata),
+		Process:    ProcessState{ProgressFlags: uint32(d.progress_flags), ProcessWarnings: uint32(d.process_warnings)},
 	}
 }
 

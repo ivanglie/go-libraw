@@ -81,7 +81,15 @@ Keep the Go names close enough to upstream names that users can cross-reference 
 
 - Question: Should absent maker-note groups be pointers, option structs, or zero-value structs?
 - Recommended default: use value structs for direct mirrors and document zero-value behavior.
-- Answer:
+- Answer: use value structs and document zero-value behavior for absent vendor data.
+
+## Implementation Outcome
+
+- Added `Metadata.MakerNotes` with value snapshots for all vendor maker-note groups in `libraw_makernotes_t`.
+- Added public aliases for vendor maker-note types.
+- Summarized pointer payloads with length/presence fields instead of exposing C-owned pointers.
+- Added fixture smoke tests for Canon, Nikon, Ricoh/DNG, and Sony.
+- Documented field-level coverage in `docs/libraw-maker-notes-coverage.md`.
 
 ## Git And PR
 
@@ -104,4 +112,3 @@ Keep the Go names close enough to upstream names that users can cross-reference 
 
 - Risk: some vendor fields are hard to validate with current fixtures.
 - Mitigation: use inventory coverage for mapping and fixture tests for smoke behavior.
-

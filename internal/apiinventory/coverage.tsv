@@ -154,10 +154,10 @@ macro	LIBRAW_WIN32_UNICODEPATHS	unsupported	preprocessor switch or function-like
 macro	LIBRAW_X3F_ALLOC_LIMIT_MB	wrapped	generated from value-like macro
 macro	LIBRAW_XTRANS	wrapped	generated from value-like macro
 struct	libraw_P1_color_t	wrapped	wrapped by P1Color; field coverage documented in docs/libraw-metadata-coverage.md
-struct	libraw_afinfo_item_t	deferred	tracked for a future workflowr task
-struct	libraw_area_t	deferred	only used by vendor maker notes in this task scope; see docs/libraw-metadata-coverage.md
+struct	libraw_afinfo_item_t	wrapped	wrapped by AFInfoItem summary; pointer payload documented in docs/libraw-maker-notes-coverage.md
+struct	libraw_area_t	wrapped	wrapped by Area for Canon maker-note crop fields
 struct	libraw_callbacks_t	deferred	tracked for a future workflowr task
-struct	libraw_canon_makernotes_t	deferred	tracked for a future workflowr task
+struct	libraw_canon_makernotes_t	wrapped	wrapped by CanonMakerNotes
 struct	libraw_colordata_t	wrapped	wrapped by ColorData; pointer payloads summarized in docs/libraw-metadata-coverage.md
 struct	libraw_custom_camera_t	deferred	decoder/custom camera work tracked for TASK-012
 struct	libraw_data_t	wrapped	wrapped by Metadata snapshot for core fields; params covered by TASK-007 and maker notes deferred
@@ -166,34 +166,34 @@ struct	libraw_dng_color_t	wrapped	wrapped by DNGColor
 struct	libraw_dng_levels_t	wrapped	wrapped by DNGLevels; raw opcode payloads summarized
 struct	libraw_dng_rawopcode_t	wrapped	wrapped by DNGRawOpcode summary
 struct	libraw_dnglens_t	wrapped	wrapped by DNGLens
-struct	libraw_fuji_info_t	deferred	tracked for a future workflowr task
+struct	libraw_fuji_info_t	wrapped	wrapped by FujiMakerNotes
 struct	libraw_gps_info_t	wrapped	wrapped by GPSInfo
-struct	libraw_hasselblad_makernotes_t	deferred	tracked for a future workflowr task
+struct	libraw_hasselblad_makernotes_t	wrapped	wrapped by HasselbladMakerNotes
 struct	libraw_image_sizes_t	wrapped	wrapped by ImageSizes
 struct	libraw_imgother_t	wrapped	wrapped by ImageOther
 struct	libraw_internal_output_params_t	wrapped	wrapped by InternalOutputParams within RawDataSummary
 struct	libraw_iparams_t	wrapped	wrapped by ImageParams
-struct	libraw_kodak_makernotes_t	deferred	tracked for a future workflowr task
+struct	libraw_kodak_makernotes_t	wrapped	wrapped by KodakMakerNotes
 struct	libraw_lensinfo_t	wrapped	wrapped by LensInfo
 struct	libraw_makernotes_lens_t	wrapped	wrapped by MakerNotesLens as generic lens metadata
-struct	libraw_makernotes_t	deferred	tracked for a future workflowr task
-struct	libraw_metadata_common_t	deferred	vendor maker-note common metadata tracked for TASK-009
-struct	libraw_nikon_makernotes_t	deferred	tracked for a future workflowr task
+struct	libraw_makernotes_t	wrapped	wrapped by MakerNotes
+struct	libraw_metadata_common_t	wrapped	wrapped by MetadataCommon
+struct	libraw_nikon_makernotes_t	wrapped	wrapped by NikonMakerNotes
 struct	libraw_nikonlens_t	wrapped	wrapped by NikonLens
-struct	libraw_olympus_makernotes_t	deferred	tracked for a future workflowr task
+struct	libraw_olympus_makernotes_t	wrapped	wrapped by OlympusMakerNotes
 struct	libraw_output_params_t	wrapped	wrapped by OutputParams; field coverage documented in docs/libraw-params-coverage.md
-struct	libraw_p1_makernotes_t	deferred	tracked for a future workflowr task
-struct	libraw_panasonic_makernotes_t	deferred	tracked for a future workflowr task
-struct	libraw_pentax_makernotes_t	deferred	tracked for a future workflowr task
+struct	libraw_p1_makernotes_t	wrapped	wrapped by PhaseOneMakerNotes
+struct	libraw_panasonic_makernotes_t	wrapped	wrapped by PanasonicMakerNotes
+struct	libraw_pentax_makernotes_t	wrapped	wrapped by PentaxMakerNotes
 struct	libraw_processed_image_t	wrapped	wrapped by ProcessedImage
 struct	libraw_raw_inset_crop_t	wrapped	wrapped by RawInsetCrop
 struct	libraw_raw_unpack_params_t	wrapped	wrapped by RawUnpackParams except custom_camera_strings, documented unsupported in docs/libraw-params-coverage.md
 struct	libraw_rawdata_t	wrapped	wrapped by RawDataSummary; raw pixel buffers summarized
-struct	libraw_ricoh_makernotes_t	deferred	tracked for a future workflowr task
-struct	libraw_samsung_makernotes_t	deferred	tracked for a future workflowr task
-struct	libraw_sensor_highspeed_crop_t	deferred	tracked for a future workflowr task
+struct	libraw_ricoh_makernotes_t	wrapped	wrapped by RicohMakerNotes
+struct	libraw_samsung_makernotes_t	wrapped	wrapped by SamsungMakerNotes
+struct	libraw_sensor_highspeed_crop_t	wrapped	wrapped by SensorHighSpeedCrop
 struct	libraw_shootinginfo_t	wrapped	wrapped by ShootingInfo
-struct	libraw_sony_info_t	deferred	tracked for a future workflowr task
+struct	libraw_sony_info_t	wrapped	wrapped by SonyMakerNotes
 struct	libraw_thumbnail_item_t	wrapped	wrapped by ThumbnailItem
 struct	libraw_thumbnail_list_t	wrapped	wrapped by ThumbnailList
 struct	libraw_thumbnail_t	wrapped	wrapped by Thumbnail summary; data pointer not exposed

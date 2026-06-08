@@ -73,6 +73,57 @@ type ShootingInfo = librawc.ShootingInfo
 // RawDataSummary mirrors libraw_rawdata_t without exposing raw image pointers.
 type RawDataSummary = librawc.RawDataSummary
 
+// MakerNotes mirrors libraw_makernotes_t.
+type MakerNotes = librawc.MakerNotes
+
+// Area mirrors libraw_area_t.
+type Area = librawc.Area
+
+// SensorHighSpeedCrop mirrors libraw_sensor_highspeed_crop_t.
+type SensorHighSpeedCrop = librawc.SensorHighSpeedCrop
+
+// AFInfoItem mirrors libraw_afinfo_item_t without exposing the C data pointer.
+type AFInfoItem = librawc.AFInfoItem
+
+// MetadataCommon mirrors libraw_metadata_common_t.
+type MetadataCommon = librawc.MetadataCommon
+
+// CanonMakerNotes mirrors libraw_canon_makernotes_t.
+type CanonMakerNotes = librawc.CanonMakerNotes
+
+// NikonMakerNotes mirrors libraw_nikon_makernotes_t.
+type NikonMakerNotes = librawc.NikonMakerNotes
+
+// HasselbladMakerNotes mirrors libraw_hasselblad_makernotes_t.
+type HasselbladMakerNotes = librawc.HasselbladMakerNotes
+
+// FujiMakerNotes mirrors libraw_fuji_info_t.
+type FujiMakerNotes = librawc.FujiMakerNotes
+
+// OlympusMakerNotes mirrors libraw_olympus_makernotes_t.
+type OlympusMakerNotes = librawc.OlympusMakerNotes
+
+// SonyMakerNotes mirrors libraw_sony_info_t.
+type SonyMakerNotes = librawc.SonyMakerNotes
+
+// KodakMakerNotes mirrors libraw_kodak_makernotes_t.
+type KodakMakerNotes = librawc.KodakMakerNotes
+
+// PanasonicMakerNotes mirrors libraw_panasonic_makernotes_t.
+type PanasonicMakerNotes = librawc.PanasonicMakerNotes
+
+// PentaxMakerNotes mirrors libraw_pentax_makernotes_t.
+type PentaxMakerNotes = librawc.PentaxMakerNotes
+
+// PhaseOneMakerNotes mirrors libraw_p1_makernotes_t.
+type PhaseOneMakerNotes = librawc.PhaseOneMakerNotes
+
+// RicohMakerNotes mirrors libraw_ricoh_makernotes_t.
+type RicohMakerNotes = librawc.RicohMakerNotes
+
+// SamsungMakerNotes mirrors libraw_samsung_makernotes_t.
+type SamsungMakerNotes = librawc.SamsungMakerNotes
+
 // Metadata returns a Go-owned snapshot of the current LibRaw metadata.
 func (p *Processor) Metadata() (Metadata, error) {
 	p.mu.Lock()
