@@ -3,11 +3,14 @@
 
 # Temporary and generated artifacts
 tmp/
-coverage.out           # go test -coverprofile (also produced by CI)
-coverage.html          # go tool cover -html output
+# go test -coverprofile (also produced by CI)
+coverage.out
+# go tool cover -html output
+coverage.html
 
 # Test artifacts
-*.test                 # go test binaries
+# go test binaries
+*.test
 
 # Generated images and example outputs
 testdata/*.jpg

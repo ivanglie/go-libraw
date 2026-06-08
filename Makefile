@@ -1,4 +1,4 @@
-.PHONY: build example test cover-html lint vet fmt clean check
+.PHONY: build example test cover cover-html lint vet fmt clean check
 
 # _example is skipped by ./..., so compile-check it explicitly.
 build:
@@ -11,6 +11,11 @@ example:
 
 test:
 	go test -v -cover -coverpkg=./... -race ./...
+
+# Generate a coverage profile and print function-level coverage.
+cover:
+	go test -coverpkg=./... -coverprofile=coverage.out ./...
+	go tool cover -func=coverage.out
 
 # Generate a coverage profile and open it in a browser.
 cover-html:
