@@ -18,28 +18,28 @@ Statuses:
 | --- | --- | --- | --- |
 | `libraw_COLOR` | `libraw.h` | `wrapped` | wrapped by Processor.Color |
 | `libraw_adjust_sizes_info_only` | `libraw.h` | `wrapped` | wrapped by Processor.AdjustSizesInfoOnly |
-| `libraw_adjust_to_raw_inset_crop` | `libraw.h` | `deferred` | tracked for a future workflowr task |
-| `libraw_cameraCount` | `libraw.h` | `deferred` | tracked for a future workflowr task |
-| `libraw_cameraList` | `libraw.h` | `deferred` | tracked for a future workflowr task |
-| `libraw_capabilities` | `libraw.h` | `deferred` | tracked for a future workflowr task |
+| `libraw_adjust_to_raw_inset_crop` | `libraw.h` | `wrapped` | wrapped by Processor.AdjustToRawInsetCrop (LibRaw 0.22+) |
+| `libraw_cameraCount` | `libraw.h` | `wrapped` | wrapped by CameraCount |
+| `libraw_cameraList` | `libraw.h` | `wrapped` | wrapped by CameraList |
+| `libraw_capabilities` | `libraw.h` | `wrapped` | wrapped by Capabilities |
 | `libraw_close` | `libraw.h` | `internal` | used by Processor.Close |
 | `libraw_dcraw_clear_mem` | `libraw.h` | `internal` | used by Processor.MemImage and MemThumb |
 | `libraw_dcraw_ppm_tiff_writer` | `libraw.h` | `wrapped` | wrapped by Processor.WritePPMTiff |
 | `libraw_dcraw_process` | `libraw.h` | `wrapped` | wrapped by Processor.DcrawProcess |
 | `libraw_dcraw_thumb_writer` | `libraw.h` | `wrapped` | wrapped by Processor.WriteThumb |
 | `libraw_free_image` | `libraw.h` | `wrapped` | wrapped by Processor.FreeImage |
-| `libraw_get_cam_mul` | `libraw.h` | `deferred` | tracked for a future workflowr task |
-| `libraw_get_color_maximum` | `libraw.h` | `deferred` | tracked for a future workflowr task |
-| `libraw_get_decoder_info` | `libraw.h` | `deferred` | tracked for a future workflowr task |
-| `libraw_get_iheight` | `libraw.h` | `deferred` | tracked for a future workflowr task |
-| `libraw_get_imgother` | `libraw.h` | `deferred` | tracked for a future workflowr task |
-| `libraw_get_iparams` | `libraw.h` | `deferred` | tracked for a future workflowr task |
-| `libraw_get_iwidth` | `libraw.h` | `deferred` | tracked for a future workflowr task |
-| `libraw_get_lensinfo` | `libraw.h` | `deferred` | tracked for a future workflowr task |
-| `libraw_get_pre_mul` | `libraw.h` | `deferred` | tracked for a future workflowr task |
+| `libraw_get_cam_mul` | `libraw.h` | `wrapped` | wrapped by Processor.CamMul |
+| `libraw_get_color_maximum` | `libraw.h` | `wrapped` | wrapped by Processor.ColorMaximum |
+| `libraw_get_decoder_info` | `libraw.h` | `wrapped` | wrapped by Processor.DecoderInfo |
+| `libraw_get_iheight` | `libraw.h` | `wrapped` | wrapped by Processor.IHeight |
+| `libraw_get_imgother` | `libraw.h` | `wrapped` | exposed via Processor.Metadata().Other |
+| `libraw_get_iparams` | `libraw.h` | `wrapped` | exposed via Processor.Metadata().ImageParams |
+| `libraw_get_iwidth` | `libraw.h` | `wrapped` | wrapped by Processor.IWidth |
+| `libraw_get_lensinfo` | `libraw.h` | `wrapped` | exposed via Processor.Metadata().Lens |
+| `libraw_get_pre_mul` | `libraw.h` | `wrapped` | wrapped by Processor.PreMul |
 | `libraw_get_raw_height` | `libraw.h` | `wrapped` | wrapped by Processor.RawHeight |
 | `libraw_get_raw_width` | `libraw.h` | `wrapped` | wrapped by Processor.RawWidth |
-| `libraw_get_rgb_cam` | `libraw.h` | `deferred` | tracked for a future workflowr task |
+| `libraw_get_rgb_cam` | `libraw.h` | `wrapped` | wrapped by Processor.RGBCam |
 | `libraw_init` | `libraw.h` | `internal` | used by NewProcessor |
 | `libraw_open_bayer` | `libraw.h` | `wrapped` | wrapped by Processor.OpenBayer |
 | `libraw_open_buffer` | `libraw.h` | `wrapped` | wrapped by Processor.OpenBuffer |
@@ -69,7 +69,7 @@ Statuses:
 | `libraw_strprogress` | `libraw.h` | `wrapped` | exposed as StrProgress and Progress.String |
 | `libraw_subtract_black` | `libraw.h` | `wrapped` | wrapped by Processor.SubtractBlack |
 | `libraw_unpack` | `libraw.h` | `wrapped` | wrapped by Processor.Unpack |
-| `libraw_unpack_function_name` | `libraw.h` | `deferred` | tracked for a future workflowr task |
+| `libraw_unpack_function_name` | `libraw.h` | `wrapped` | wrapped by Processor.UnpackFunctionName |
 | `libraw_unpack_thumb` | `libraw.h` | `wrapped` | wrapped by Processor.UnpackThumb |
 | `libraw_unpack_thumb_ex` | `libraw.h` | `wrapped` | wrapped by Processor.UnpackThumbEx |
 | `libraw_version` | `libraw.h` | `wrapped` | exposed as Version |
@@ -193,7 +193,7 @@ Statuses:
 | `libraw_colordata_t` | `libraw_types.h` | `wrapped` | wrapped by ColorData; pointer payloads summarized in docs/libraw-metadata-coverage.md |
 | `libraw_custom_camera_t` | `libraw_types.h` | `deferred` | decoder/custom camera work tracked for TASK-012 |
 | `libraw_data_t` | `libraw_types.h` | `wrapped` | wrapped by Metadata snapshot for core fields; params covered by TASK-007 and maker notes deferred |
-| `libraw_decoder_info_t` | `libraw_types.h` | `deferred` | tracked for a future workflowr task |
+| `libraw_decoder_info_t` | `libraw_types.h` | `wrapped` | wrapped by DecoderInfo |
 | `libraw_dng_color_t` | `libraw_types.h` | `wrapped` | wrapped by DNGColor |
 | `libraw_dng_levels_t` | `libraw_types.h` | `wrapped` | wrapped by DNGLevels; raw opcode payloads summarized |
 | `libraw_dng_rawopcode_t` | `libraw_types.h` | `wrapped` | wrapped by DNGRawOpcode summary |

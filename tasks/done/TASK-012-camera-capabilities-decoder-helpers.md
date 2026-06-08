@@ -82,7 +82,15 @@ Prefer returning copies of C string arrays. Keep helper methods grouped clearly 
 
 - Question: Should camera list be cached?
 - Recommended default: no cache initially; LibRaw owns the static list and calls are cheap enough for clarity.
-- Answer:
+- Answer: No cache. CameraList rebuilds the Go slice from LibRaw's static list on each call; documented as such.
+
+## Implementation Outcome
+
+- Package helpers: `CameraList`, `CameraCount`, `Capabilities`.
+- Processor helpers: `UnpackFunctionName`, `DecoderInfo`, `IWidth`, `IHeight`, `CamMul`, `PreMul`, `RGBCam`, `ColorMaximum`, `AdjustToRawInsetCrop`.
+- Index validation: `CamMul`/`PreMul` require 0..3; `RGBCam` requires row 0..2, col 0..3 (reuses validateIndex, returns errors).
+- `libraw_adjust_to_raw_inset_crop` is LibRaw 0.22+; guarded in the cgo preamble and reported as `ErrUnsupported` on older libraries (CI runs 0.21.2). All other helpers exist in 0.21.2 and need no guard (verified against the upstream 0.21.2 header).
+- `libraw_get_iparams`/`get_lensinfo`/`get_imgother` are not re-wrapped (metadata struct mapping is out of scope); their data is already exposed via `Processor.Metadata()`. Marked wrapped-via-metadata in the coverage map.
 
 ## Git And PR
 

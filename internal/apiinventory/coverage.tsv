@@ -38,28 +38,28 @@ enum	LibRaw_warnings	wrapped	generated constants expose enum members
 enum	LibRaw_whitebalance_code	wrapped	generated constants expose enum members
 function	libraw_COLOR	wrapped	wrapped by Processor.Color
 function	libraw_adjust_sizes_info_only	wrapped	wrapped by Processor.AdjustSizesInfoOnly
-function	libraw_adjust_to_raw_inset_crop	deferred	tracked for a future workflowr task
-function	libraw_cameraCount	deferred	tracked for a future workflowr task
-function	libraw_cameraList	deferred	tracked for a future workflowr task
-function	libraw_capabilities	deferred	tracked for a future workflowr task
+function	libraw_adjust_to_raw_inset_crop	wrapped	wrapped by Processor.AdjustToRawInsetCrop (LibRaw 0.22+)
+function	libraw_cameraCount	wrapped	wrapped by CameraCount
+function	libraw_cameraList	wrapped	wrapped by CameraList
+function	libraw_capabilities	wrapped	wrapped by Capabilities
 function	libraw_close	internal	used by Processor.Close
 function	libraw_dcraw_clear_mem	internal	used by Processor.MemImage and MemThumb
 function	libraw_dcraw_ppm_tiff_writer	wrapped	wrapped by Processor.WritePPMTiff
 function	libraw_dcraw_process	wrapped	wrapped by Processor.DcrawProcess
 function	libraw_dcraw_thumb_writer	wrapped	wrapped by Processor.WriteThumb
 function	libraw_free_image	wrapped	wrapped by Processor.FreeImage
-function	libraw_get_cam_mul	deferred	tracked for a future workflowr task
-function	libraw_get_color_maximum	deferred	tracked for a future workflowr task
-function	libraw_get_decoder_info	deferred	tracked for a future workflowr task
-function	libraw_get_iheight	deferred	tracked for a future workflowr task
-function	libraw_get_imgother	deferred	tracked for a future workflowr task
-function	libraw_get_iparams	deferred	tracked for a future workflowr task
-function	libraw_get_iwidth	deferred	tracked for a future workflowr task
-function	libraw_get_lensinfo	deferred	tracked for a future workflowr task
-function	libraw_get_pre_mul	deferred	tracked for a future workflowr task
+function	libraw_get_cam_mul	wrapped	wrapped by Processor.CamMul
+function	libraw_get_color_maximum	wrapped	wrapped by Processor.ColorMaximum
+function	libraw_get_decoder_info	wrapped	wrapped by Processor.DecoderInfo
+function	libraw_get_iheight	wrapped	wrapped by Processor.IHeight
+function	libraw_get_imgother	wrapped	exposed via Processor.Metadata().Other
+function	libraw_get_iparams	wrapped	exposed via Processor.Metadata().ImageParams
+function	libraw_get_iwidth	wrapped	wrapped by Processor.IWidth
+function	libraw_get_lensinfo	wrapped	exposed via Processor.Metadata().Lens
+function	libraw_get_pre_mul	wrapped	wrapped by Processor.PreMul
 function	libraw_get_raw_height	wrapped	wrapped by Processor.RawHeight
 function	libraw_get_raw_width	wrapped	wrapped by Processor.RawWidth
-function	libraw_get_rgb_cam	deferred	tracked for a future workflowr task
+function	libraw_get_rgb_cam	wrapped	wrapped by Processor.RGBCam
 function	libraw_init	internal	used by NewProcessor
 function	libraw_open_bayer	wrapped	wrapped by Processor.OpenBayer
 function	libraw_open_buffer	wrapped	wrapped by Processor.OpenBuffer
@@ -89,7 +89,7 @@ function	libraw_strerror	wrapped	exposed as StrError and ErrorCode.String
 function	libraw_strprogress	wrapped	exposed as StrProgress and Progress.String
 function	libraw_subtract_black	wrapped	wrapped by Processor.SubtractBlack
 function	libraw_unpack	wrapped	wrapped by Processor.Unpack
-function	libraw_unpack_function_name	deferred	tracked for a future workflowr task
+function	libraw_unpack_function_name	wrapped	wrapped by Processor.UnpackFunctionName
 function	libraw_unpack_thumb	wrapped	wrapped by Processor.UnpackThumb
 function	libraw_unpack_thumb_ex	wrapped	wrapped by Processor.UnpackThumbEx
 function	libraw_version	wrapped	exposed as Version
@@ -161,7 +161,7 @@ struct	libraw_canon_makernotes_t	wrapped	wrapped by CanonMakerNotes
 struct	libraw_colordata_t	wrapped	wrapped by ColorData; pointer payloads summarized in docs/libraw-metadata-coverage.md
 struct	libraw_custom_camera_t	deferred	decoder/custom camera work tracked for TASK-012
 struct	libraw_data_t	wrapped	wrapped by Metadata snapshot for core fields; params covered by TASK-007 and maker notes deferred
-struct	libraw_decoder_info_t	deferred	tracked for a future workflowr task
+struct	libraw_decoder_info_t	wrapped	wrapped by DecoderInfo
 struct	libraw_dng_color_t	wrapped	wrapped by DNGColor
 struct	libraw_dng_levels_t	wrapped	wrapped by DNGLevels; raw opcode payloads summarized
 struct	libraw_dng_rawopcode_t	wrapped	wrapped by DNGRawOpcode summary
