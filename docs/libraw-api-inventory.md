@@ -41,15 +41,15 @@ Statuses:
 | `libraw_get_raw_width` | `libraw.h` | `deferred` | tracked for a future workflowr task |
 | `libraw_get_rgb_cam` | `libraw.h` | `deferred` | tracked for a future workflowr task |
 | `libraw_init` | `libraw.h` | `internal` | used by NewProcessor |
-| `libraw_open_bayer` | `libraw.h` | `deferred` | tracked for a future workflowr task |
-| `libraw_open_buffer` | `libraw.h` | `deferred` | tracked for a future workflowr task |
-| `libraw_open_file` | `libraw.h` | `deferred` | tracked for a future workflowr task |
-| `libraw_open_file_ex` | `libraw.h` | `deferred` | tracked for a future workflowr task |
+| `libraw_open_bayer` | `libraw.h` | `wrapped` | wrapped by Processor.OpenBayer |
+| `libraw_open_buffer` | `libraw.h` | `wrapped` | wrapped by Processor.OpenBuffer |
+| `libraw_open_file` | `libraw.h` | `wrapped` | wrapped by Processor.OpenFile |
+| `libraw_open_file_ex` | `libraw.h` | `unsupported` | removed from default 0.22 build via LIBRAW_NO_IOSTREAMS_DATASTREAM |
 | `libraw_open_wfile` | `libraw.h` | `deferred` | tracked for a future workflowr task |
 | `libraw_open_wfile_ex` | `libraw.h` | `deferred` | tracked for a future workflowr task |
 | `libraw_raw2image` | `libraw.h` | `deferred` | tracked for a future workflowr task |
-| `libraw_recycle` | `libraw.h` | `deferred` | tracked for a future workflowr task |
-| `libraw_recycle_datastream` | `libraw.h` | `deferred` | tracked for a future workflowr task |
+| `libraw_recycle` | `libraw.h` | `wrapped` | wrapped by Processor.Recycle |
+| `libraw_recycle_datastream` | `libraw.h` | `wrapped` | wrapped by Processor.RecycleDatastream |
 | `libraw_set_adjust_maximum_thr` | `libraw.h` | `deferred` | tracked for a future workflowr task |
 | `libraw_set_bright` | `libraw.h` | `deferred` | tracked for a future workflowr task |
 | `libraw_set_dataerror_handler` | `libraw.h` | `deferred` | tracked for a future workflowr task |

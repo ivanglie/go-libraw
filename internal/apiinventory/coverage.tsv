@@ -61,15 +61,15 @@ function	libraw_get_raw_height	deferred	tracked for a future workflowr task
 function	libraw_get_raw_width	deferred	tracked for a future workflowr task
 function	libraw_get_rgb_cam	deferred	tracked for a future workflowr task
 function	libraw_init	internal	used by NewProcessor
-function	libraw_open_bayer	deferred	tracked for a future workflowr task
-function	libraw_open_buffer	deferred	tracked for a future workflowr task
-function	libraw_open_file	deferred	tracked for a future workflowr task
-function	libraw_open_file_ex	deferred	tracked for a future workflowr task
+function	libraw_open_bayer	wrapped	wrapped by Processor.OpenBayer
+function	libraw_open_buffer	wrapped	wrapped by Processor.OpenBuffer
+function	libraw_open_file	wrapped	wrapped by Processor.OpenFile
+function	libraw_open_file_ex	unsupported	removed from default 0.22 build via LIBRAW_NO_IOSTREAMS_DATASTREAM
 function	libraw_open_wfile	deferred	tracked for a future workflowr task
 function	libraw_open_wfile_ex	deferred	tracked for a future workflowr task
 function	libraw_raw2image	deferred	tracked for a future workflowr task
-function	libraw_recycle	deferred	tracked for a future workflowr task
-function	libraw_recycle_datastream	deferred	tracked for a future workflowr task
+function	libraw_recycle	wrapped	wrapped by Processor.Recycle
+function	libraw_recycle_datastream	wrapped	wrapped by Processor.RecycleDatastream
 function	libraw_set_adjust_maximum_thr	deferred	tracked for a future workflowr task
 function	libraw_set_bright	deferred	tracked for a future workflowr task
 function	libraw_set_dataerror_handler	deferred	tracked for a future workflowr task

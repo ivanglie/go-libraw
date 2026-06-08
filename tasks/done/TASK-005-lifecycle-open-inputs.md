@@ -83,7 +83,13 @@ Document that LibRaw handles are not safe for concurrent mutation unless proven 
 
 - Question: Should `OpenWFile` be supported in initial lifecycle coverage?
 - Recommended default: defer to a Windows-specific task unless current platform work proves straightforward.
-- Answer:
+- Answer: Deferred to a Windows-specific task. `libraw_open_wfile`/`libraw_open_wfile_ex` are Win32-only (`#if defined(_WIN32)`) and not exercised on the current darwin/linux cgo targets.
+
+## Implementation Outcome
+
+- Wrapped `libraw_open_file`, `libraw_open_buffer`, `libraw_open_bayer`, `libraw_recycle`, and `libraw_recycle_datastream` as `Processor.OpenFile`, `OpenBuffer`, `OpenBayer`, `Recycle`, and `RecycleDatastream`.
+- `libraw_open_file_ex` is unavailable in the baseline LibRaw 0.22 build: `libraw.h` defines `LIBRAW_NO_IOSTREAMS_DATASTREAM` by default, so the symbol is compiled out and absent from the shared library. Marked `unsupported` in the API coverage map rather than wrapped.
+- Buffer ownership: `OpenBuffer`/`OpenBayer` copy input bytes into C memory retained by the handle (LibRaw keeps a pointer rather than copying). The copy is freed on `Recycle`, `Close`, or reuse, keeping ownership on the C side and satisfying cgo pointer rules.
 
 ## Git And PR
 
