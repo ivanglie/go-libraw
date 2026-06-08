@@ -82,7 +82,14 @@ Use `runtime/cgo.Handle` or an equivalent safe registry. Avoid passing Go pointe
 
 - Question: Should callbacks be allowed to run concurrently?
 - Recommended default: document that LibRaw may invoke callbacks from processing calls; make registry safe but avoid promising callback order beyond LibRaw behavior.
-- Answer:
+- Answer: Callbacks run synchronously on the goroutine that calls the triggering method (OpenFile, Unpack, DcrawProcess). This package does not invoke them concurrently and makes no promise about LibRaw's ordering or frequency. Registration is serialized through the Processor mutex; the registry is referenced by a runtime/cgo.Handle. Documented on the public callback types.
+
+## Implementation Outcome
+
+- Added `Processor.SetProgressHandler`, `SetDataErrorHandler`, `SetExifParserHandler`, and `SetMakerNotesHandler` over the four LibRaw `libraw_set_*_handler` functions.
+- Trampolines: the registry (`*callbacks`) is held by a `runtime/cgo.Handle` whose value is passed to LibRaw as the callback `void *data`. Exported Go functions (`//export`) reconstruct the handle, recover panics, and dispatch. No Go pointers are passed to C, satisfying cgo rules.
+- Cancellation: a non-zero progress return (or a panicking progress callback) cancels the in-flight call, which returns `LIBRAW_CANCELLED_BY_CALLBACK`. Note progress events begin during identification, so OpenFile itself can be cancelled.
+- Lifetime: the cgo.Handle is deleted on Close, so the registry no longer retains the handle (verified by an internal test). EXIF/maker-note stream pointer (ifp) is intentionally not exposed.
 
 ## Git And PR
 

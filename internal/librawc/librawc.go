@@ -16,6 +16,7 @@ import "C"
 
 import (
 	"errors"
+	"runtime/cgo"
 	"unsafe"
 )
 
@@ -33,6 +34,8 @@ type Handle struct {
 	ptr          *C.libraw_data_t
 	cbuf         unsafe.Pointer
 	paramStrings [4]unsafe.Pointer
+	cb           *callbacks
+	cbHandle     cgo.Handle
 }
 
 // New initializes a LibRaw handle.
@@ -53,6 +56,7 @@ func (h *Handle) Close() {
 	h.ptr = nil
 	h.freeBuffer()
 	h.freeParamStrings()
+	h.releaseCallbacks()
 }
 
 // freeBuffer releases the retained C copy of an input buffer, if any.

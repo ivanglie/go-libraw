@@ -52,18 +52,18 @@ Statuses:
 | `libraw_recycle_datastream` | `libraw.h` | `wrapped` | wrapped by Processor.RecycleDatastream |
 | `libraw_set_adjust_maximum_thr` | `libraw.h` | `wrapped` | wrapped by Processor.SetAdjustMaximumThreshold |
 | `libraw_set_bright` | `libraw.h` | `wrapped` | wrapped by Processor.SetBright |
-| `libraw_set_dataerror_handler` | `libraw.h` | `deferred` | tracked for a future workflowr task |
+| `libraw_set_dataerror_handler` | `libraw.h` | `wrapped` | wrapped by Processor.SetDataErrorHandler |
 | `libraw_set_demosaic` | `libraw.h` | `wrapped` | wrapped by Processor.SetDemosaic |
-| `libraw_set_exifparser_handler` | `libraw.h` | `deferred` | tracked for a future workflowr task |
+| `libraw_set_exifparser_handler` | `libraw.h` | `wrapped` | wrapped by Processor.SetExifParserHandler |
 | `libraw_set_fbdd_noiserd` | `libraw.h` | `wrapped` | wrapped by Processor.SetFBDDNoiseReduction |
 | `libraw_set_gamma` | `libraw.h` | `wrapped` | wrapped by Processor.SetGamma |
 | `libraw_set_highlight` | `libraw.h` | `wrapped` | wrapped by Processor.SetHighlight |
-| `libraw_set_makernotes_handler` | `libraw.h` | `deferred` | tracked for a future workflowr task |
+| `libraw_set_makernotes_handler` | `libraw.h` | `wrapped` | wrapped by Processor.SetMakerNotesHandler |
 | `libraw_set_no_auto_bright` | `libraw.h` | `wrapped` | wrapped by Processor.SetNoAutoBright |
 | `libraw_set_output_bps` | `libraw.h` | `wrapped` | wrapped by Processor.SetOutputBPS |
 | `libraw_set_output_color` | `libraw.h` | `wrapped` | wrapped by Processor.SetOutputColor |
 | `libraw_set_output_tif` | `libraw.h` | `wrapped` | wrapped by Processor.SetOutputTIFF |
-| `libraw_set_progress_handler` | `libraw.h` | `deferred` | tracked for a future workflowr task |
+| `libraw_set_progress_handler` | `libraw.h` | `wrapped` | wrapped by Processor.SetProgressHandler |
 | `libraw_set_user_mul` | `libraw.h` | `wrapped` | wrapped by Processor.SetUserMul |
 | `libraw_strerror` | `libraw.h` | `wrapped` | exposed as StrError and ErrorCode.String |
 | `libraw_strprogress` | `libraw.h` | `wrapped` | exposed as StrProgress and Progress.String |

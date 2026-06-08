@@ -72,18 +72,18 @@ function	libraw_recycle	wrapped	wrapped by Processor.Recycle
 function	libraw_recycle_datastream	wrapped	wrapped by Processor.RecycleDatastream
 function	libraw_set_adjust_maximum_thr	wrapped	wrapped by Processor.SetAdjustMaximumThreshold
 function	libraw_set_bright	wrapped	wrapped by Processor.SetBright
-function	libraw_set_dataerror_handler	deferred	tracked for a future workflowr task
+function	libraw_set_dataerror_handler	wrapped	wrapped by Processor.SetDataErrorHandler
 function	libraw_set_demosaic	wrapped	wrapped by Processor.SetDemosaic
-function	libraw_set_exifparser_handler	deferred	tracked for a future workflowr task
+function	libraw_set_exifparser_handler	wrapped	wrapped by Processor.SetExifParserHandler
 function	libraw_set_fbdd_noiserd	wrapped	wrapped by Processor.SetFBDDNoiseReduction
 function	libraw_set_gamma	wrapped	wrapped by Processor.SetGamma
 function	libraw_set_highlight	wrapped	wrapped by Processor.SetHighlight
-function	libraw_set_makernotes_handler	deferred	tracked for a future workflowr task
+function	libraw_set_makernotes_handler	wrapped	wrapped by Processor.SetMakerNotesHandler
 function	libraw_set_no_auto_bright	wrapped	wrapped by Processor.SetNoAutoBright
 function	libraw_set_output_bps	wrapped	wrapped by Processor.SetOutputBPS
 function	libraw_set_output_color	wrapped	wrapped by Processor.SetOutputColor
 function	libraw_set_output_tif	wrapped	wrapped by Processor.SetOutputTIFF
-function	libraw_set_progress_handler	deferred	tracked for a future workflowr task
+function	libraw_set_progress_handler	wrapped	wrapped by Processor.SetProgressHandler
 function	libraw_set_user_mul	wrapped	wrapped by Processor.SetUserMul
 function	libraw_strerror	wrapped	exposed as StrError and ErrorCode.String
 function	libraw_strprogress	wrapped	exposed as StrProgress and Progress.String
