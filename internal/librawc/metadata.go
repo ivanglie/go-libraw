@@ -4,6 +4,26 @@ package librawc
 
 /*
 #include <libraw/libraw.h>
+
+static unsigned go_libraw_dng_rawopcode_len(libraw_dng_levels_t *p, int i) {
+#if LIBRAW_VERSION >= LIBRAW_MAKE_VERSION(0,22,0)
+	return p->rawopcodes[i].len;
+#else
+	(void)p;
+	(void)i;
+	return 0;
+#endif
+}
+
+static int go_libraw_dng_rawopcode_has_data(libraw_dng_levels_t *p, int i) {
+#if LIBRAW_VERSION >= LIBRAW_MAKE_VERSION(0,22,0)
+	return p->rawopcodes[i].data != 0;
+#else
+	(void)p;
+	(void)i;
+	return 0;
+#endif
+}
 */
 import "C"
 
@@ -454,7 +474,10 @@ func convertDNGLevels(l *C.libraw_dng_levels_t) DNGLevels {
 		out.AsShotNeutral[i] = float32(l.asshotneutral[i])
 	}
 	for i := 0; i < 3; i++ {
-		out.RawOpcodes[i] = DNGRawOpcode{Len: uint32(l.rawopcodes[i].len), HasData: l.rawopcodes[i].data != nil}
+		out.RawOpcodes[i] = DNGRawOpcode{
+			Len:     uint32(C.go_libraw_dng_rawopcode_len(l, C.int(i))),
+			HasData: C.go_libraw_dng_rawopcode_has_data(l, C.int(i)) != 0,
+		}
 	}
 	return out
 }
