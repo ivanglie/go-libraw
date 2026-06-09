@@ -84,7 +84,14 @@ The source of truth should be checked-in inventory plus a documented upstream ve
 
 - Question: Should "100%" include C++-only classes such as custom datastream subclasses?
 - Recommended default: include public C API and data structures first; document C++-only surfaces as explicit exclusions unless a later design chooses to support them.
-- Answer:
+- Answer: define release coverage around parsed public C API symbols and public data structures from the tracked LibRaw headers. C++-only extension surfaces and platform/preprocessor-only switches are explicit documented exclusions.
+
+## Implementation Outcome
+
+- Added generated API coverage summary report support to the inventory tool.
+- Added `make api-coverage`, `make check-api-coverage`, and `make release-check`.
+- Added release checklist and upstream sync documentation.
+- Linked release/upstream docs from the README.
 
 ## Git And PR
 
@@ -107,4 +114,3 @@ The source of truth should be checked-in inventory plus a documented upstream ve
 
 - Risk: "100%" can be interpreted differently.
 - Mitigation: define in-scope public API explicitly and make exclusions visible in release docs.
-

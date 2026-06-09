@@ -51,6 +51,15 @@ type CoverageEntry struct {
 	Note   string
 }
 
+// CoverageSummary counts coverage statuses for an inventory.
+type CoverageSummary struct {
+	Total       int
+	ByStatus    map[string]int
+	Unmapped    []Symbol
+	Deferred    []CoverageEntry
+	Unsupported []CoverageEntry
+}
+
 // Options configures inventory generation.
 type Options struct {
 	HeaderDir string
@@ -254,6 +263,85 @@ func MissingCoverage(inv Inventory, coverage map[string]CoverageEntry) []Symbol 
 	return missing
 }
 
+// SummarizeCoverage returns release-oriented coverage counts and notable gaps.
+func SummarizeCoverage(inv Inventory, coverage map[string]CoverageEntry) CoverageSummary {
+	summary := CoverageSummary{
+		Total:    len(inv.Symbols),
+		ByStatus: map[string]int{},
+		Unmapped: MissingCoverage(inv, coverage),
+	}
+	for _, sym := range inv.Symbols {
+		entry, ok := coverage[symbolKey(sym.Kind, sym.Name)]
+		if !ok {
+			summary.ByStatus["unmapped"]++
+			continue
+		}
+		summary.ByStatus[entry.Status]++
+		switch entry.Status {
+		case "deferred":
+			summary.Deferred = append(summary.Deferred, entry)
+		case "unsupported":
+			summary.Unsupported = append(summary.Unsupported, entry)
+		}
+	}
+	sortCoverageEntries(summary.Deferred)
+	sortCoverageEntries(summary.Unsupported)
+	return summary
+}
+
+// RenderCoverageReport renders an auditable release coverage summary.
+func RenderCoverageReport(inv Inventory, coverage map[string]CoverageEntry) []byte {
+	summary := SummarizeCoverage(inv, coverage)
+	statuses := make([]string, 0, len(summary.ByStatus))
+	for status := range summary.ByStatus {
+		statuses = append(statuses, status)
+	}
+	sort.Strings(statuses)
+
+	var out bytes.Buffer
+	fmt.Fprintln(&out, "# LibRaw API Coverage")
+	fmt.Fprintln(&out)
+	fmt.Fprintf(&out, "- Header directory: `%s`\n", inv.HeaderDir)
+	if inv.Version != "" {
+		fmt.Fprintf(&out, "- Header version: `%s`\n", inv.Version)
+	}
+	fmt.Fprintf(&out, "- Total tracked public symbols: `%d`\n", summary.Total)
+	fmt.Fprintf(&out, "- Explicit coverage entries: `%d/%d`\n", summary.Total-len(summary.Unmapped), summary.Total)
+	if len(summary.Unmapped) == 0 {
+		fmt.Fprintln(&out, "- Release gate: `pass` (no unmapped symbols)")
+	} else {
+		fmt.Fprintln(&out, "- Release gate: `fail` (unmapped symbols remain)")
+	}
+	fmt.Fprintln(&out)
+	fmt.Fprintln(&out, "## Status Counts")
+	fmt.Fprintln(&out)
+	fmt.Fprintln(&out, "| Status | Count |")
+	fmt.Fprintln(&out, "| --- | --- |")
+	for _, status := range statuses {
+		fmt.Fprintf(&out, "| `%s` | `%d` |\n", status, summary.ByStatus[status])
+	}
+	fmt.Fprintln(&out)
+
+	renderEntryList(&out, "Deferred Symbols", summary.Deferred)
+	renderEntryList(&out, "Unsupported Symbols", summary.Unsupported)
+	if len(summary.Unmapped) > 0 {
+		fmt.Fprintln(&out, "## Unmapped Symbols")
+		fmt.Fprintln(&out)
+		for _, sym := range summary.Unmapped {
+			fmt.Fprintf(&out, "- `%s` `%s` from `%s`\n", sym.Kind, sym.Name, sym.Header)
+		}
+		fmt.Fprintln(&out)
+	}
+
+	fmt.Fprintln(&out, "## In-Scope Definition")
+	fmt.Fprintln(&out)
+	fmt.Fprintln(&out, "The release gate covers public C API symbols and public data structures parsed")
+	fmt.Fprintln(&out, "from the checked-in LibRaw fixture headers. C++-only extension surfaces and")
+	fmt.Fprintln(&out, "platform/preprocessor-only switches are documented as `unsupported` instead of")
+	fmt.Fprintln(&out, "being counted as missing Go API.")
+	return out.Bytes()
+}
+
 func renderKind(out *bytes.Buffer, symbols []Symbol, kind SymbolKind, coverage map[string]CoverageEntry) {
 	fmt.Fprintf(out, "## %s\n\n", title(string(kind)))
 	fmt.Fprintln(out, "| Symbol | Header | Status | Note |")
@@ -376,4 +464,24 @@ func title(s string) string {
 
 func escapePipes(s string) string {
 	return strings.ReplaceAll(s, "|", "\\|")
+}
+
+func renderEntryList(out *bytes.Buffer, title string, entries []CoverageEntry) {
+	if len(entries) == 0 {
+		return
+	}
+	fmt.Fprintf(out, "## %s\n\n", title)
+	for _, entry := range entries {
+		fmt.Fprintf(out, "- `%s` `%s`: %s\n", entry.Kind, entry.Name, escapePipes(entry.Note))
+	}
+	fmt.Fprintln(out)
+}
+
+func sortCoverageEntries(entries []CoverageEntry) {
+	sort.Slice(entries, func(i, j int) bool {
+		if entries[i].Kind != entries[j].Kind {
+			return entries[i].Kind < entries[j].Kind
+		}
+		return entries[i].Name < entries[j].Name
+	})
 }
