@@ -10,6 +10,9 @@ make libraw-check
 The check verifies that cgo is enabled, reports the LibRaw discovery path, and
 runs the linked runtime version smoke test.
 
+For CI coverage and supported platform assumptions, see
+[Support Matrix](support-matrix.md).
+
 ## macOS Homebrew
 
 Install LibRaw:
@@ -81,4 +84,3 @@ go test ./...
 
 Prefer pkg-config when possible because it captures platform-specific include
 and linker flags in one place.
-

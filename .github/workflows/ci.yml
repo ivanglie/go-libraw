@@ -11,8 +11,18 @@ permissions:
 
 jobs:
   test:
-    name: Build, Test, Coverage
-    runs-on: ubuntu-latest
+    name: ${{ matrix.os }} / Go
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-latest
+          - macos-latest
+
+    env:
+      CGO_ENABLED: "1"
 
     steps:
       - name: Check out repository
@@ -25,18 +35,32 @@ jobs:
           check-latest: true
           cache: true
 
-      - name: Install LibRaw
+      - name: Install LibRaw on Ubuntu
+        if: runner.os == 'Linux'
         run: |
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends libraw-dev pkg-config
 
+      - name: Install LibRaw on macOS
+        if: runner.os == 'macOS'
+        run: brew install libraw pkg-config
+
       - name: Show tool versions
         run: |
           go version
-          pkg-config --modversion libraw
+          go env GOOS GOARCH CGO_ENABLED
+          if command -v pkg-config >/dev/null 2>&1 && pkg-config --exists libraw; then
+            echo "pkg-config libraw: $(pkg-config --modversion libraw)"
+            echo "pkg-config flags: $(pkg-config --cflags --libs libraw)"
+          else
+            echo "pkg-config libraw: unavailable"
+          fi
 
       - name: Check LibRaw linkage
         run: make libraw-check
+
+      - name: Check API inventory
+        run: make check-api-inventory
 
       - name: Build
         run: make build
@@ -44,8 +68,18 @@ jobs:
       - name: Vet
         run: make vet
 
+      - name: Lint
+        uses: golangci/golangci-lint-action@v8
+        with:
+          version: v2.12.2
+
       - name: Test
         run: make test
+
+      - name: Examples
+        run: |
+          make examples
+          make clean
 
       - name: Coverage
         run: make cover
@@ -53,6 +87,6 @@ jobs:
       - name: Upload coverage profile
         uses: actions/upload-artifact@v4
         with:
-          name: coverage
+          name: coverage-${{ matrix.os }}
           path: coverage.out
           if-no-files-found: error

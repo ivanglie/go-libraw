@@ -83,7 +83,13 @@ Keep the first CI matrix modest: macOS latest and Ubuntu latest are enough if bo
 
 - Question: Should CI require lint if `golangci-lint` is unavailable or slow?
 - Recommended default: yes, install a pinned golangci-lint version in CI.
-- Answer:
+- Answer: yes. CI uses the official `golangci/golangci-lint-action` with pinned `golangci-lint` version `v2.12.2`.
+
+## Implementation Outcome
+
+- Expanded GitHub Actions CI to run on `ubuntu-latest` and `macos-latest`.
+- Added OS-specific LibRaw installation, API inventory check, lint, examples, coverage, and version/discovery logging.
+- Added a support matrix documenting CI coverage, user-supported platforms, and unsupported platforms.
 
 ## Git And PR
 
@@ -106,4 +112,3 @@ Keep the first CI matrix modest: macOS latest and Ubuntu latest are enough if bo
 
 - Risk: CI LibRaw version may differ from developer machines.
 - Mitigation: print LibRaw runtime and compile-time versions in CI logs.
-
