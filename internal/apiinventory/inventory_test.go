@@ -128,6 +128,63 @@ func TestRenderCoverageTSVPreservesExistingEntries(t *testing.T) {
 	}
 }
 
+func TestRenderCoverageReportSummarizesReleaseGate(t *testing.T) {
+	inv := Inventory{
+		HeaderDir: "/tmp/libraw",
+		Version:   "1.2.3-Release",
+		Symbols: []Symbol{
+			{Kind: FunctionKind, Name: "libraw_version", Header: "libraw.h"},
+			{Kind: FunctionKind, Name: "libraw_open_wfile", Header: "libraw.h"},
+			{Kind: MacroKind, Name: "LIBRAW_WIN32_CALLS", Header: "libraw.h"},
+		},
+	}
+	coverage := map[string]CoverageEntry{
+		"function\tlibraw_version": {
+			Kind:   FunctionKind,
+			Name:   "libraw_version",
+			Status: "wrapped",
+			Note:   "public version helper",
+		},
+		"function\tlibraw_open_wfile": {
+			Kind:   FunctionKind,
+			Name:   "libraw_open_wfile",
+			Status: "deferred",
+			Note:   "tracked for Windows path support",
+		},
+		"macro\tLIBRAW_WIN32_CALLS": {
+			Kind:   MacroKind,
+			Name:   "LIBRAW_WIN32_CALLS",
+			Status: "unsupported",
+			Note:   "platform macro",
+		},
+	}
+
+	body := string(RenderCoverageReport(inv, coverage))
+	for _, want := range []string{
+		"- Release gate: `pass`",
+		"| `wrapped` | `1` |",
+		"| `deferred` | `1` |",
+		"| `unsupported` | `1` |",
+		"`function` `libraw_open_wfile`",
+		"`macro` `LIBRAW_WIN32_CALLS`",
+	} {
+		if !strings.Contains(body, want) {
+			t.Fatalf("coverage report missing %q:\n%s", want, body)
+		}
+	}
+}
+
+func TestCoverageReportFailsGateForUnmappedSymbols(t *testing.T) {
+	inv := Inventory{Symbols: []Symbol{
+		{Kind: FunctionKind, Name: "libraw_new_symbol", Header: "libraw.h"},
+	}}
+
+	body := string(RenderCoverageReport(inv, map[string]CoverageEntry{}))
+	if !strings.Contains(body, "- Release gate: `fail`") {
+		t.Fatalf("coverage report did not fail gate for unmapped symbol:\n%s", body)
+	}
+}
+
 func TestGenerateFromInstalledHeaders(t *testing.T) {
 	dir, err := FindHeaderDir("")
 	if err != nil {

@@ -1,4 +1,4 @@
-.PHONY: api-inventory check-api-inventory generate build example examples test test-fast test-fixtures cover cover-html libraw-check lint vet fmt clean check
+.PHONY: api-inventory api-coverage check-api-inventory check-api-coverage generate build example examples test test-fast test-fixtures cover cover-html libraw-check lint vet fmt clean check release-check
 
 LIBRAW_HEADERS ?= testdata/headers/libraw
 
@@ -36,6 +36,9 @@ libraw-check:
 api-inventory:
 	go run ./cmd/libraw-api-inventory -headers "$(LIBRAW_HEADERS)" -update-coverage
 
+api-coverage:
+	go run ./cmd/libraw-api-inventory -headers "$(LIBRAW_HEADERS)" -coverage-report docs/libraw-api-coverage.md
+
 # Regenerate Go files from checked-in LibRaw fixture headers.
 generate:
 	go run ./tools/gen-constants
@@ -44,6 +47,9 @@ generate:
 # Verify committed LibRaw API inventory and coverage map are current.
 check-api-inventory:
 	go run ./cmd/libraw-api-inventory -headers "$(LIBRAW_HEADERS)" -check
+
+check-api-coverage:
+	go run ./cmd/libraw-api-inventory -headers "$(LIBRAW_HEADERS)" -check -coverage-report docs/libraw-api-coverage.md
 
 # Develops the bundled sample RAW to tmp/outputs/RAW_CANON_6D.ppm (run from the repo root).
 example:
@@ -93,3 +99,6 @@ clean:
 	rm -rf tmp/outputs tmp/examples
 
 check: libraw-check check-api-inventory build vet lint test
+
+release-check: check check-api-coverage test-fixtures examples
+	$(MAKE) clean
