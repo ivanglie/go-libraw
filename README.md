@@ -100,6 +100,7 @@ The sample commands are mapped to upstream LibRaw samples in
 - [Lifecycle And Processing](docs/lifecycle-processing.md)
 - [Memory And Cgo Safety](docs/memory-and-cgo.md)
 - [API Coverage Guide](docs/api-coverage.md)
+- [Project Layout Audit](docs/project-layout-audit.md)
 - [Release Checklist](docs/release-checklist.md)
 - [Upstream Sync](docs/upstream-sync.md)
 - [LibRaw API Inventory](docs/libraw-api-inventory.md)
