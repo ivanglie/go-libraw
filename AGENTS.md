@@ -150,6 +150,17 @@ When blocking a task:
 2. Place it next to the blocked task or in the task file under `## Blocker Note`.
 3. Include unknowns, evidence, attempted options, and the recommended next step.
 
+## Queue Continuation
+
+When a task completes successfully and its PR is merged:
+
+1. Move the completed task to `tasks/done/`.
+2. Check `tasks/inbox/` for the next task.
+3. If a next task exists, start it by following the normal Task Intake flow.
+4. If multiple tasks exist, choose the lexicographically first filename unless the user or task metadata defines priority.
+5. If no next task exists, report that the queue is empty.
+6. Do not start the next task if the completed task is not merged, is blocked, or has failed required checks.
+
 ## Task Intake
 
 Task files should live in `tasks/inbox/` until started.

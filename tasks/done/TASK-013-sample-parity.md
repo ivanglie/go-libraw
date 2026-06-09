@@ -83,7 +83,14 @@ Keep examples small and readable. Do not hide core API usage behind too much hel
 
 - Question: Should `dcraw_emu` be implemented as a full CLI clone?
 - Recommended default: defer full `dcraw_emu` parity; include representative options only.
-- Answer:
+- Answer: defer full `dcraw_emu` parity. This task adds readable sample-parity examples for the key wrapper flows instead of a complete flag-compatible clone.
+
+## Implementation Outcome
+
+- Added small Go commands for raw identification, metadata text dump, in-memory image extraction, and thumbnail extraction.
+- Kept `_example` as the simple dcraw-style library usage example.
+- Documented the mapping from upstream LibRaw samples to Go examples in `docs/examples.md`.
+- Added `make examples` output under `tmp/examples/` and kept generated files removable with `make clean`.
 
 ## Git And PR
 
@@ -106,4 +113,3 @@ Keep examples small and readable. Do not hide core API usage behind too much hel
 
 - Risk: examples may become fragile if they assert exact image bytes.
 - Mitigation: assert structural outputs first, with optional golden tests only where stable.
-

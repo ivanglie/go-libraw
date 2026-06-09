@@ -1,4 +1,4 @@
-.PHONY: api-inventory check-api-inventory generate build example test cover cover-html libraw-check lint vet fmt clean check
+.PHONY: api-inventory check-api-inventory generate build example examples test cover cover-html libraw-check lint vet fmt clean check
 
 LIBRAW_HEADERS ?= testdata/headers/libraw
 
@@ -49,6 +49,17 @@ check-api-inventory:
 example:
 	go run ./_example
 
+# Run the LibRaw sample-parity examples on bundled fixtures.
+# Outputs (where any) go under tmp/examples and are removed by `make clean`.
+# See docs/examples.md for the upstream sample each one mirrors.
+examples:
+	@mkdir -p tmp/examples
+	go run ./_example
+	go run ./cmd/raw-identify testdata/RAW_CANON_6D.CR2
+	go run ./cmd/raw-textdump testdata/RAW_NIKON_D750.NEF
+	go run ./cmd/mem-image testdata/RAW_RICOH_GR2.DNG
+	go run ./cmd/thumb-extract testdata/RAW_CANON_6D.CR2
+
 test:
 	go test -v -cover -coverpkg=./... -race ./...
 
@@ -73,6 +84,6 @@ lint:
 
 clean:
 	rm -f coverage.out coverage.html testdata/*.jpg
-	rm -rf tmp/outputs
+	rm -rf tmp/outputs tmp/examples
 
 check: libraw-check check-api-inventory build vet lint test
