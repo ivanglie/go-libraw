@@ -83,7 +83,14 @@ Prefer concise docs with links to upstream LibRaw documentation. Keep generated 
 
 - Question: Should docs include Russian text?
 - Recommended default: English public docs, because Go package docs and upstream LibRaw are English.
-- Answer:
+- Answer: use English public docs. User-facing task discussion can stay in Russian, but package README and docs should match Go and LibRaw documentation conventions.
+
+## Implementation Outcome
+
+- Added a README with install commands, quick start, examples, and coverage links.
+- Added lifecycle/processing, memory/cgo safety, and API coverage guides.
+- Added a compile-only Go example for the README quick-start flow.
+- Linked handwritten docs to generated LibRaw inventory and coverage reports.
 
 ## Git And PR
 
@@ -106,4 +113,3 @@ Prefer concise docs with links to upstream LibRaw documentation. Keep generated 
 
 - Risk: docs drift from generated inventory.
 - Mitigation: link docs to generated coverage reports and verify examples in tests.
-
