@@ -1,0 +1,205 @@
+# kind	name	status	note
+enum	LIBRAW_SONY_FOCUSMODEmodes	wrapped	generated constants expose enum members
+enum	LibRawImageAspects	wrapped	generated constants expose enum members
+enum	LibRaw_As_Shot_WB_Applied_codes	wrapped	generated constants expose enum members
+enum	LibRaw_Canon_RecordModes	wrapped	generated constants expose enum members
+enum	LibRaw_ExifTagTypes	wrapped	generated constants expose enum members
+enum	LibRaw_HasselbladFormatCodes	wrapped	generated constants expose enum members
+enum	LibRaw_KodakSensors	wrapped	generated constants expose enum members
+enum	LibRaw_MultiExposure_related	wrapped	generated constants expose enum members
+enum	LibRaw_Sony_0x2010_Type	wrapped	generated constants expose enum members
+enum	LibRaw_Sony_0x9050_Type	wrapped	generated constants expose enum members
+enum	LibRaw_camera_formats	wrapped	generated constants expose enum members
+enum	LibRaw_camera_mounts	wrapped	generated constants expose enum members
+enum	LibRaw_cameramaker_index	wrapped	generated constants expose enum members
+enum	LibRaw_colorspace	wrapped	generated constants expose enum members
+enum	LibRaw_constructor_flags	wrapped	generated constants expose enum members
+enum	LibRaw_decoder_flags	wrapped	generated constants expose enum members
+enum	LibRaw_dng_processing	wrapped	generated constants expose enum members
+enum	LibRaw_dngfields_marks	wrapped	generated constants expose enum members
+enum	LibRaw_errors	wrapped	generated constants expose enum members
+enum	LibRaw_exceptions	wrapped	generated constants expose enum members
+enum	LibRaw_image_formats	wrapped	generated constants expose enum members
+enum	LibRaw_internal_thumbnail_formats	wrapped	generated constants expose enum members
+enum	LibRaw_lens_focal_types	wrapped	generated constants expose enum members
+enum	LibRaw_minolta_bayerpatterns	wrapped	generated constants expose enum members
+enum	LibRaw_minolta_storagemethods	wrapped	generated constants expose enum members
+enum	LibRaw_open_flags	wrapped	generated constants expose enum members
+enum	LibRaw_openbayer_patterns	wrapped	generated constants expose enum members
+enum	LibRaw_output_flags	wrapped	generated constants expose enum members
+enum	LibRaw_processing_options	wrapped	generated constants expose enum members
+enum	LibRaw_progress	wrapped	generated constants expose enum members
+enum	LibRaw_rawspecial_t	wrapped	generated constants expose enum members
+enum	LibRaw_rawspeed_bits_t	wrapped	generated constants expose enum members
+enum	LibRaw_runtime_capabilities	wrapped	generated constants expose enum members
+enum	LibRaw_sony_cameratypes	wrapped	generated constants expose enum members
+enum	LibRaw_thumbnail_formats	wrapped	generated constants expose enum members
+enum	LibRaw_warnings	wrapped	generated constants expose enum members
+enum	LibRaw_whitebalance_code	wrapped	generated constants expose enum members
+function	libraw_COLOR	wrapped	wrapped by Processor.Color
+function	libraw_adjust_sizes_info_only	wrapped	wrapped by Processor.AdjustSizesInfoOnly
+function	libraw_adjust_to_raw_inset_crop	wrapped	wrapped by Processor.AdjustToRawInsetCrop (LibRaw 0.22+)
+function	libraw_cameraCount	wrapped	wrapped by CameraCount
+function	libraw_cameraList	wrapped	wrapped by CameraList
+function	libraw_capabilities	wrapped	wrapped by Capabilities
+function	libraw_close	internal	used by Processor.Close
+function	libraw_dcraw_clear_mem	internal	used by Processor.MemImage and MemThumb
+function	libraw_dcraw_ppm_tiff_writer	wrapped	wrapped by Processor.WritePPMTiff
+function	libraw_dcraw_process	wrapped	wrapped by Processor.DcrawProcess
+function	libraw_dcraw_thumb_writer	wrapped	wrapped by Processor.WriteThumb
+function	libraw_free_image	wrapped	wrapped by Processor.FreeImage
+function	libraw_get_cam_mul	wrapped	wrapped by Processor.CamMul
+function	libraw_get_color_maximum	wrapped	wrapped by Processor.ColorMaximum
+function	libraw_get_decoder_info	wrapped	wrapped by Processor.DecoderInfo
+function	libraw_get_iheight	wrapped	wrapped by Processor.IHeight
+function	libraw_get_imgother	wrapped	exposed via Processor.Metadata().Other
+function	libraw_get_iparams	wrapped	exposed via Processor.Metadata().ImageParams
+function	libraw_get_iwidth	wrapped	wrapped by Processor.IWidth
+function	libraw_get_lensinfo	wrapped	exposed via Processor.Metadata().Lens
+function	libraw_get_pre_mul	wrapped	wrapped by Processor.PreMul
+function	libraw_get_raw_height	wrapped	wrapped by Processor.RawHeight
+function	libraw_get_raw_width	wrapped	wrapped by Processor.RawWidth
+function	libraw_get_rgb_cam	wrapped	wrapped by Processor.RGBCam
+function	libraw_init	internal	used by NewProcessor
+function	libraw_open_bayer	wrapped	wrapped by Processor.OpenBayer
+function	libraw_open_buffer	wrapped	wrapped by Processor.OpenBuffer
+function	libraw_open_file	wrapped	wrapped by Processor.OpenFile
+function	libraw_open_file_ex	unsupported	removed from default 0.22 build via LIBRAW_NO_IOSTREAMS_DATASTREAM
+function	libraw_open_wfile	deferred	tracked for a future task
+function	libraw_open_wfile_ex	deferred	tracked for a future task
+function	libraw_raw2image	wrapped	wrapped by Processor.Raw2Image
+function	libraw_recycle	wrapped	wrapped by Processor.Recycle
+function	libraw_recycle_datastream	wrapped	wrapped by Processor.RecycleDatastream
+function	libraw_set_adjust_maximum_thr	wrapped	wrapped by Processor.SetAdjustMaximumThreshold
+function	libraw_set_bright	wrapped	wrapped by Processor.SetBright
+function	libraw_set_dataerror_handler	wrapped	wrapped by Processor.SetDataErrorHandler
+function	libraw_set_demosaic	wrapped	wrapped by Processor.SetDemosaic
+function	libraw_set_exifparser_handler	wrapped	wrapped by Processor.SetExifParserHandler
+function	libraw_set_fbdd_noiserd	wrapped	wrapped by Processor.SetFBDDNoiseReduction
+function	libraw_set_gamma	wrapped	wrapped by Processor.SetGamma
+function	libraw_set_highlight	wrapped	wrapped by Processor.SetHighlight
+function	libraw_set_makernotes_handler	wrapped	wrapped by Processor.SetMakerNotesHandler
+function	libraw_set_no_auto_bright	wrapped	wrapped by Processor.SetNoAutoBright
+function	libraw_set_output_bps	wrapped	wrapped by Processor.SetOutputBPS
+function	libraw_set_output_color	wrapped	wrapped by Processor.SetOutputColor
+function	libraw_set_output_tif	wrapped	wrapped by Processor.SetOutputTIFF
+function	libraw_set_progress_handler	wrapped	wrapped by Processor.SetProgressHandler
+function	libraw_set_user_mul	wrapped	wrapped by Processor.SetUserMul
+function	libraw_strerror	wrapped	exposed as StrError and ErrorCode.String
+function	libraw_strprogress	wrapped	exposed as StrProgress and Progress.String
+function	libraw_subtract_black	wrapped	wrapped by Processor.SubtractBlack
+function	libraw_unpack	wrapped	wrapped by Processor.Unpack
+function	libraw_unpack_function_name	wrapped	wrapped by Processor.UnpackFunctionName
+function	libraw_unpack_thumb	wrapped	wrapped by Processor.UnpackThumb
+function	libraw_unpack_thumb_ex	wrapped	wrapped by Processor.UnpackThumbEx
+function	libraw_version	wrapped	exposed as Version
+function	libraw_versionNumber	wrapped	exposed as VersionNumber
+macro	LIBRAW_AFDATA_MAXCOUNT	wrapped	generated from value-like macro
+macro	LIBRAW_AHD_TILE	wrapped	generated from value-like macro
+macro	LIBRAW_CBLACK_SIZE	wrapped	generated from value-like macro
+macro	LIBRAW_CHECK_VERSION	unsupported	preprocessor switch or function-like macro not exposed as a Go constant
+macro	LIBRAW_COMPILE_CHECK_VERSION	unsupported	preprocessor switch or function-like macro not exposed as a Go constant
+macro	LIBRAW_COMPILE_CHECK_VERSION_NOTLESS	unsupported	preprocessor switch or function-like macro not exposed as a Go constant
+macro	LIBRAW_CR3_MEMPOOL	unsupported	preprocessor switch or function-like macro not exposed as a Go constant
+macro	LIBRAW_CRXTRACKS_MAXCOUNT	wrapped	generated from value-like macro
+macro	LIBRAW_DEFAULT_ADJUST_MAXIMUM_THRESHOLD	wrapped	generated from value-like macro
+macro	LIBRAW_DEFAULT_AUTO_BRIGHTNESS_THRESHOLD	wrapped	generated from value-like macro
+macro	LIBRAW_EXIFTOOLTAGTYPE_binary	wrapped	generated from value-like macro
+macro	LIBRAW_EXIFTOOLTAGTYPE_complex	wrapped	generated from value-like macro
+macro	LIBRAW_EXIFTOOLTAGTYPE_double	wrapped	generated from value-like macro
+macro	LIBRAW_EXIFTOOLTAGTYPE_float	wrapped	generated from value-like macro
+macro	LIBRAW_EXIFTOOLTAGTYPE_ifd	wrapped	generated from value-like macro
+macro	LIBRAW_EXIFTOOLTAGTYPE_ifd64	wrapped	generated from value-like macro
+macro	LIBRAW_EXIFTOOLTAGTYPE_int16s	wrapped	generated from value-like macro
+macro	LIBRAW_EXIFTOOLTAGTYPE_int16u	wrapped	generated from value-like macro
+macro	LIBRAW_EXIFTOOLTAGTYPE_int32s	wrapped	generated from value-like macro
+macro	LIBRAW_EXIFTOOLTAGTYPE_int32u	wrapped	generated from value-like macro
+macro	LIBRAW_EXIFTOOLTAGTYPE_int64s	wrapped	generated from value-like macro
+macro	LIBRAW_EXIFTOOLTAGTYPE_int64u	wrapped	generated from value-like macro
+macro	LIBRAW_EXIFTOOLTAGTYPE_int8s	wrapped	generated from value-like macro
+macro	LIBRAW_EXIFTOOLTAGTYPE_int8u	wrapped	generated from value-like macro
+macro	LIBRAW_EXIFTOOLTAGTYPE_rational64s	wrapped	generated from value-like macro
+macro	LIBRAW_EXIFTOOLTAGTYPE_rational64u	wrapped	generated from value-like macro
+macro	LIBRAW_EXIFTOOLTAGTYPE_string	wrapped	generated from value-like macro
+macro	LIBRAW_EXIFTOOLTAGTYPE_undef	wrapped	generated from value-like macro
+macro	LIBRAW_EXIFTOOLTAGTYPE_unicode	wrapped	generated from value-like macro
+macro	LIBRAW_FATAL_ERROR	unsupported	preprocessor switch or function-like macro not exposed as a Go constant
+macro	LIBRAW_IFD_MAXCOUNT	wrapped	generated from value-like macro
+macro	LIBRAW_IOSPACE_CHECK	unsupported	preprocessor switch or function-like macro not exposed as a Go constant
+macro	LIBRAW_LENS_NOT_SET	wrapped	generated from value-like macro
+macro	LIBRAW_MAKE_VERSION	unsupported	preprocessor switch or function-like macro not exposed as a Go constant
+macro	LIBRAW_MAX_ALLOC_MB_DEFAULT	wrapped	generated from value-like macro
+macro	LIBRAW_MAX_CR3_RAW_FILE_SIZE	wrapped	generated from value-like macro
+macro	LIBRAW_MAX_DNG_RAW_FILE_SIZE	wrapped	generated from value-like macro
+macro	LIBRAW_MAX_METADATA_BLOCKS	wrapped	generated from value-like macro
+macro	LIBRAW_MAX_NONDNG_RAW_FILE_SIZE	wrapped	generated from value-like macro
+macro	LIBRAW_MAX_PROFILE_SIZE_MB	wrapped	generated from value-like macro
+macro	LIBRAW_MAX_THUMBNAIL_MB	wrapped	generated from value-like macro
+macro	LIBRAW_MEMPOOL_CHECK	unsupported	preprocessor switch or function-like macro not exposed as a Go constant
+macro	LIBRAW_NO_IOSTREAMS_DATASTREAM	unsupported	preprocessor switch or function-like macro not exposed as a Go constant
+macro	LIBRAW_OWN_SWAB	unsupported	preprocessor switch or function-like macro not exposed as a Go constant
+macro	LIBRAW_PROGRESS_THUMB_MASK	wrapped	generated from value-like macro
+macro	LIBRAW_RUNTIME_CHECK_VERSION_EXACT	unsupported	preprocessor switch or function-like macro not exposed as a Go constant
+macro	LIBRAW_RUNTIME_CHECK_VERSION_NOTLESS	unsupported	preprocessor switch or function-like macro not exposed as a Go constant
+macro	LIBRAW_SHLIB_AGE	wrapped	generated from value-like macro
+macro	LIBRAW_SHLIB_CURRENT	wrapped	generated from value-like macro
+macro	LIBRAW_SHLIB_REVISION	wrapped	generated from value-like macro
+macro	LIBRAW_THUMBNAIL_MAXCOUNT	wrapped	generated from value-like macro
+macro	LIBRAW_USE_OPENMP	unsupported	preprocessor switch or function-like macro not exposed as a Go constant
+macro	LIBRAW_USE_STREAMS_DATASTREAM_MAXSIZE	unsupported	preprocessor switch or function-like macro not exposed as a Go constant
+macro	LIBRAW_VERSION_MAKE	unsupported	preprocessor switch or function-like macro not exposed as a Go constant
+macro	LIBRAW_WIN32_CALLS	unsupported	preprocessor switch or function-like macro not exposed as a Go constant
+macro	LIBRAW_WIN32_DLLDEFS	unsupported	preprocessor switch or function-like macro not exposed as a Go constant
+macro	LIBRAW_WIN32_UNICODEPATHS	unsupported	preprocessor switch or function-like macro not exposed as a Go constant
+macro	LIBRAW_X3F_ALLOC_LIMIT_MB	wrapped	generated from value-like macro
+macro	LIBRAW_XTRANS	wrapped	generated from value-like macro
+struct	libraw_P1_color_t	wrapped	wrapped by P1Color; field coverage documented in docs/libraw-metadata-coverage.md
+struct	libraw_afinfo_item_t	wrapped	wrapped by AFInfoItem summary; pointer payload documented in docs/libraw-maker-notes-coverage.md
+struct	libraw_area_t	wrapped	wrapped by Area for Canon maker-note crop fields
+struct	libraw_callbacks_t	deferred	tracked for a future task
+struct	libraw_canon_makernotes_t	wrapped	wrapped by CanonMakerNotes
+struct	libraw_colordata_t	wrapped	wrapped by ColorData; pointer payloads summarized in docs/libraw-metadata-coverage.md
+struct	libraw_custom_camera_t	deferred	decoder/custom camera work tracked for TASK-012
+struct	libraw_data_t	wrapped	wrapped by Metadata snapshot for core fields; params covered by TASK-007 and maker notes deferred
+struct	libraw_decoder_info_t	wrapped	wrapped by DecoderInfo
+struct	libraw_dng_color_t	wrapped	wrapped by DNGColor
+struct	libraw_dng_levels_t	wrapped	wrapped by DNGLevels; raw opcode payloads summarized
+struct	libraw_dng_rawopcode_t	wrapped	wrapped by DNGRawOpcode summary
+struct	libraw_dnglens_t	wrapped	wrapped by DNGLens
+struct	libraw_fuji_info_t	wrapped	wrapped by FujiMakerNotes
+struct	libraw_gps_info_t	wrapped	wrapped by GPSInfo
+struct	libraw_hasselblad_makernotes_t	wrapped	wrapped by HasselbladMakerNotes
+struct	libraw_image_sizes_t	wrapped	wrapped by ImageSizes
+struct	libraw_imgother_t	wrapped	wrapped by ImageOther
+struct	libraw_internal_output_params_t	wrapped	wrapped by InternalOutputParams within RawDataSummary
+struct	libraw_iparams_t	wrapped	wrapped by ImageParams
+struct	libraw_kodak_makernotes_t	wrapped	wrapped by KodakMakerNotes
+struct	libraw_lensinfo_t	wrapped	wrapped by LensInfo
+struct	libraw_makernotes_lens_t	wrapped	wrapped by MakerNotesLens as generic lens metadata
+struct	libraw_makernotes_t	wrapped	wrapped by MakerNotes
+struct	libraw_metadata_common_t	wrapped	wrapped by MetadataCommon
+struct	libraw_nikon_makernotes_t	wrapped	wrapped by NikonMakerNotes
+struct	libraw_nikonlens_t	wrapped	wrapped by NikonLens
+struct	libraw_olympus_makernotes_t	wrapped	wrapped by OlympusMakerNotes
+struct	libraw_output_params_t	wrapped	wrapped by OutputParams; field coverage documented in docs/libraw-params-coverage.md
+struct	libraw_p1_makernotes_t	wrapped	wrapped by PhaseOneMakerNotes
+struct	libraw_panasonic_makernotes_t	wrapped	wrapped by PanasonicMakerNotes
+struct	libraw_pentax_makernotes_t	wrapped	wrapped by PentaxMakerNotes
+struct	libraw_processed_image_t	wrapped	wrapped by ProcessedImage
+struct	libraw_raw_inset_crop_t	wrapped	wrapped by RawInsetCrop
+struct	libraw_raw_unpack_params_t	wrapped	wrapped by RawUnpackParams except custom_camera_strings, documented unsupported in docs/libraw-params-coverage.md
+struct	libraw_rawdata_t	wrapped	summarized by RawDataSummary; raw_image bytes via Processor.RawImage
+struct	libraw_ricoh_makernotes_t	wrapped	wrapped by RicohMakerNotes
+struct	libraw_samsung_makernotes_t	wrapped	wrapped by SamsungMakerNotes
+struct	libraw_sensor_highspeed_crop_t	wrapped	wrapped by SensorHighSpeedCrop
+struct	libraw_shootinginfo_t	wrapped	wrapped by ShootingInfo
+struct	libraw_sony_info_t	wrapped	wrapped by SonyMakerNotes
+struct	libraw_thumbnail_item_t	wrapped	wrapped by ThumbnailItem
+struct	libraw_thumbnail_list_t	wrapped	wrapped by ThumbnailList
+struct	libraw_thumbnail_t	wrapped	summarized by Thumbnail; bytes via Processor.ThumbnailData
+version	LIBRAW_MAJOR_VERSION	wrapped	generated numeric version constant
+version	LIBRAW_MINOR_VERSION	wrapped	generated numeric version constant
+version	LIBRAW_PATCH_VERSION	wrapped	generated numeric version constant
+version	LIBRAW_VERSION	wrapped	generated numeric version constant
+version	LIBRAW_VERSION_STR	wrapped	exposed at runtime via Version
+version	LIBRAW_VERSION_TAIL	unsupported	non-numeric preprocessor token not exposed as a Go constant

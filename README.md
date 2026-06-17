@@ -1,0 +1,151 @@
+# go-libraw
+
+![go-libraw project cover](assets/social-preview.png)
+
+[![CI](https://github.com/ivanglie/go-libraw/actions/workflows/ci.yml/badge.svg)](https://github.com/ivanglie/go-libraw/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/ivanglie/go-libraw/graph/badge.svg)](https://codecov.io/gh/ivanglie/go-libraw)
+[![Go Reference](https://pkg.go.dev/badge/github.com/ivanglie/go-libraw/pkg/libraw.svg)](https://pkg.go.dev/github.com/ivanglie/go-libraw/pkg/libraw)
+
+`go-libraw` provides Go bindings for [LibRaw](https://www.libraw.org/docs),
+for reading and processing of RAW digicam images.
+
+## Requirements
+
+`go-libraw` targets **Linux and macOS** (`amd64`, `arm64`). Windows is out of
+scope; see the [Support Matrix](docs/support-matrix.md) for details.
+
+- Go `1.26` or newer, as declared by `go.mod`
+- cgo enabled
+- LibRaw `0.21` or newer (`libraw-dev` or equivalent)
+- a C/C++ toolchain for the target platform
+
+Install LibRaw on common platforms:
+
+```sh
+# macOS
+brew install libraw
+
+# Debian/Ubuntu
+sudo apt-get update
+sudo apt-get install -y libraw-dev pkg-config
+
+# Fedora
+sudo dnf install LibRaw-devel pkgconf-pkg-config
+```
+
+Verify local discovery:
+
+```sh
+make libraw-check
+```
+
+See [LibRaw Build Setup](docs/libraw-build.md) and the
+[Support Matrix](docs/support-matrix.md) for platform details.
+
+## Quick Start
+
+```sh
+go get github.com/ivanglie/go-libraw/pkg/libraw
+```
+
+```go
+package main
+
+import (
+	"log"
+
+	libraw "github.com/ivanglie/go-libraw/pkg/libraw"
+)
+
+func main() {
+	processor, err := libraw.NewProcessor()
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer func() {
+		if err := processor.Close(); err != nil {
+			log.Fatal(err)
+		}
+	}()
+
+	if err := processor.OpenFile("input.cr2"); err != nil {
+		log.Fatal(err)
+	}
+	if err := processor.Unpack(); err != nil {
+		log.Fatal(err)
+	}
+	if err := processor.DcrawProcess(); err != nil {
+		log.Fatal(err)
+	}
+	if err := processor.WritePPMTiff("output.ppm"); err != nil {
+		log.Fatal(err)
+	}
+}
+```
+
+Run the bundled example on checked-in fixtures:
+
+```sh
+make examples
+make clean
+```
+
+The sample commands are mapped to upstream LibRaw samples in
+[LibRaw Sample Parity Examples](docs/examples.md).
+
+## API Concepts
+
+- `Processor` owns one LibRaw handle. Create it with `NewProcessor`, then call
+  `Close` when finished.
+- Opening input with `OpenFile`, `OpenBuffer`, or `OpenBayer` prepares metadata
+  and decoder state.
+- Processing follows LibRaw order: open, optionally set params, `Unpack`,
+  `DcrawProcess` or lower-level image operations, then write or copy output.
+- `Metadata` returns a Go snapshot of LibRaw metadata and maker-note summaries.
+- Raw image, thumbnail, and memory image helpers return Go-owned data.
+- LibRaw error codes are returned as Go errors; use `ErrorCode` and `StrError`
+  when you need to inspect an underlying LibRaw status.
+
+## Documentation
+
+- [Lifecycle And Processing](docs/lifecycle-processing.md)
+- [Memory And Cgo Safety](docs/memory-and-cgo.md)
+- [API Coverage Guide](docs/api-coverage.md)
+- [Versioning Policy](docs/versioning.md)
+- [Release Checklist](docs/release-checklist.md)
+- [Upstream Sync](docs/upstream-sync.md)
+- [LibRaw API Inventory](docs/libraw-api-inventory.md)
+- [Metadata Coverage](docs/libraw-metadata-coverage.md)
+- [Maker-Notes Coverage](docs/libraw-maker-notes-coverage.md)
+- [Output And Raw Params Coverage](docs/libraw-params-coverage.md)
+
+## Upstream Coverage
+
+The generated inventory in [docs/libraw-api-inventory.md](docs/libraw-api-inventory.md)
+tracks LibRaw symbols from the fixture headers and marks each as `wrapped`,
+`internal`, `deferred`, `unsupported`, or `unmapped`. Run this before changing
+coverage-related code:
+
+```sh
+make check-api-inventory
+```
+
+To regenerate the inventory after updating the coverage map:
+
+```sh
+make api-inventory
+```
+
+## License
+
+The Go binding code in this repository is licensed under the MIT License; see
+[LICENSE](LICENSE). That license covers only this project's own code.
+
+`go-libraw` links the third-party [LibRaw](https://www.libraw.org) library
+(dual-licensed CDDL-1.0 OR LGPL-2.1-or-later) and checks in copies of LibRaw's
+public headers under `testdata/headers/libraw/`, which remain under LibRaw's
+license rather than MIT. Software you build and distribute from this binding
+links LibRaw and must satisfy LibRaw's license. See
+[THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md) for the full attribution and
+distribution notes (including static-linking guidance), and `licenses/` for the
+complete LibRaw license texts.

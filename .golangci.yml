@@ -1,0 +1,21 @@
+version: "2"
+
+linters:
+  enable:
+    - errcheck      # unchecked errors
+    - govet         # suspicious constructs
+    - ineffassign   # ineffectual assignments
+    - staticcheck   # static analysis + style (QFxxxx, SAxxxx)
+    - unused        # unused code
+    - misspell      # common English misspellings
+    - unconvert     # redundant type conversions
+    - revive        # golint-style style checks
+  settings:
+    revive:
+      rules:
+        - name: exported          # exported symbols need doc comments
+        - name: package-comments
+
+issues:
+  max-issues-per-linter: 0
+  max-same-issues: 0

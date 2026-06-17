@@ -1,0 +1,33 @@
+# macOS
+.DS_Store
+
+# Temporary and generated artifacts
+tmp/
+# go test -coverprofile (also produced by CI)
+coverage.out
+# go tool cover -html output
+coverage.html
+
+# Test artifacts
+# go test binaries
+*.test
+
+# Generated images and example outputs
+testdata/*.jpg
+tmp/outputs/
+tmp/examples/
+tmp/test-output/
+
+# Compiled binaries / cgo native objects
+/example
+*.o
+*.so
+*.dylib
+
+# Editor / IDE
+.idea/
+.vscode/
+*.swp
+
+# Claude Code — personal settings only; shared .claude/settings.json may be committed
+.claude/settings.local.json

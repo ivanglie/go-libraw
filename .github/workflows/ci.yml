@@ -1,0 +1,91 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: ${{ matrix.os }} / Go
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-latest
+          - macos-latest
+
+    env:
+      CGO_ENABLED: "1"
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+          check-latest: true
+          cache: true
+
+      - name: Install LibRaw on Ubuntu
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends libraw-dev pkg-config
+
+      - name: Install LibRaw on macOS
+        if: runner.os == 'macOS'
+        run: brew install libraw pkg-config
+
+      - name: Show tool versions
+        run: |
+          go version
+          go env GOOS GOARCH CGO_ENABLED
+          if command -v pkg-config >/dev/null 2>&1 && pkg-config --exists libraw; then
+            echo "pkg-config libraw: $(pkg-config --modversion libraw)"
+            echo "pkg-config flags: $(pkg-config --cflags --libs libraw)"
+          else
+            echo "pkg-config libraw: unavailable"
+          fi
+
+      - name: Check LibRaw linkage
+        run: make libraw-check
+
+      - name: Check API inventory
+        run: make check-api-inventory
+
+      - name: Build
+        run: make build
+
+      - name: Vet
+        run: make vet
+
+      - name: Lint
+        uses: golangci/golangci-lint-action@v8
+        with:
+          version: v2.12.2
+
+      - name: Test
+        run: make test
+
+      - name: Examples
+        run: |
+          make examples
+          make clean
+
+      - name: Coverage
+        run: make cover
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          files: coverage.out
+          token: ${{ secrets.CODECOV_TOKEN }}
