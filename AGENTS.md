@@ -14,6 +14,13 @@ Examples: `cmd/`
 
 All source code, comments, commit messages, and documentation must be in English.
 
+## Writing style
+
+- No "please", "let's", "perhaps".
+- No filler phrases.
+- Direct: problem → solution.
+- Honest feedback.
+
 ## Build and test
 
 ```sh
@@ -27,6 +34,10 @@ make check          # libraw-check + inventory + build + vet + lint + test
 ```
 
 CGO_ENABLED=1 is required. LibRaw must be installed (`brew install libraw` / `apt-get install libraw-dev`).
+
+Lint with `golangci-lint` **v2.12.2** — the version pinned in `.github/workflows/ci.yml`.
+Older local versions miss findings CI enforces (for example `errcheck` in `cmd/`),
+so a local green run with a different version is not enough.
 
 ## Code layout
 
