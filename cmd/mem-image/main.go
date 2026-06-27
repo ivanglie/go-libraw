@@ -14,7 +14,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	libraw "github.com/ivanglie/go-libraw/pkg/libraw"
+	libraw "github.com/strawberryworks/go-libraw/pkg/libraw"
 )
 
 func main() {

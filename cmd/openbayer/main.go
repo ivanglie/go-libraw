@@ -12,7 +12,7 @@ import (
 	"os"
 	"path/filepath"
 
-	libraw "github.com/ivanglie/go-libraw/pkg/libraw"
+	libraw "github.com/strawberryworks/go-libraw/pkg/libraw"
 )
 
 const (

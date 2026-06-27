@@ -3,7 +3,7 @@ package libraw_test
 import (
 	"log"
 
-	libraw "github.com/ivanglie/go-libraw/pkg/libraw"
+	libraw "github.com/strawberryworks/go-libraw/pkg/libraw"
 )
 
 func ExampleProcessor_quickStart() {

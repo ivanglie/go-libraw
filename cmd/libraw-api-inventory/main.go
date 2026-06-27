@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/ivanglie/go-libraw/internal/apiinventory"
+	"github.com/strawberryworks/go-libraw/internal/apiinventory"
 )
 
 func main() {

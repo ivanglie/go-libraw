@@ -2,9 +2,9 @@
 
 ![go-libraw project cover](assets/social-preview.png)
 
-[![CI](https://github.com/ivanglie/go-libraw/actions/workflows/ci.yml/badge.svg)](https://github.com/ivanglie/go-libraw/actions/workflows/ci.yml)
-[![codecov](https://codecov.io/gh/ivanglie/go-libraw/graph/badge.svg)](https://codecov.io/gh/ivanglie/go-libraw)
-[![Go Reference](https://pkg.go.dev/badge/github.com/ivanglie/go-libraw/pkg/libraw.svg)](https://pkg.go.dev/github.com/ivanglie/go-libraw/pkg/libraw)
+[![CI](https://github.com/strawberryworks/go-libraw/actions/workflows/ci.yml/badge.svg)](https://github.com/strawberryworks/go-libraw/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/strawberryworks/go-libraw/graph/badge.svg)](https://codecov.io/gh/strawberryworks/go-libraw)
+[![Go Reference](https://pkg.go.dev/badge/github.com/strawberryworks/go-libraw/pkg/libraw.svg)](https://pkg.go.dev/github.com/strawberryworks/go-libraw/pkg/libraw)
 
 `go-libraw` provides Go bindings to [LibRaw](https://www.libraw.org/docs)
 for reading and processing of RAW digicam images.
@@ -45,7 +45,7 @@ See [LibRaw Build Setup](docs/libraw-build.md) and the
 ## Quick Start
 
 ```sh
-go get github.com/ivanglie/go-libraw/pkg/libraw
+go get github.com/strawberryworks/go-libraw/pkg/libraw
 ```
 
 ```go
@@ -54,7 +54,7 @@ package main
 import (
 	"log"
 
-	libraw "github.com/ivanglie/go-libraw/pkg/libraw"
+	libraw "github.com/strawberryworks/go-libraw/pkg/libraw"
 )
 
 func main() {
