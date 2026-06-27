@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/ivanglie/go-libraw/internal/librawc"
+	"github.com/strawberryworks/go-libraw/internal/librawc"
 )
 
 // ErrClosed reports that an operation requires an open Processor.

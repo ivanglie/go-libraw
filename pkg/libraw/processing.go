@@ -1,6 +1,6 @@
 package libraw
 
-import "github.com/ivanglie/go-libraw/internal/librawc"
+import "github.com/strawberryworks/go-libraw/internal/librawc"
 
 // ProcessedImage is an in-memory image or thumbnail produced by MemImage or
 // MemThumb. Data is owned by Go; the underlying C allocation is freed before the

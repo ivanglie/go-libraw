@@ -2,7 +2,7 @@
 
 package libraw
 
-import "github.com/ivanglie/go-libraw/internal/librawc"
+import "github.com/strawberryworks/go-libraw/internal/librawc"
 
 // Metadata is a Go-owned snapshot of core LibRaw metadata.
 type Metadata = librawc.Metadata

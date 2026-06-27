@@ -3,7 +3,7 @@ package libraw
 import (
 	"fmt"
 
-	"github.com/ivanglie/go-libraw/internal/librawc"
+	"github.com/strawberryworks/go-libraw/internal/librawc"
 )
 
 // ErrorCode is a LibRaw error code.

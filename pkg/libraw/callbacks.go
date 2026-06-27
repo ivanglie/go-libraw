@@ -1,6 +1,6 @@
 package libraw
 
-import "github.com/ivanglie/go-libraw/internal/librawc"
+import "github.com/strawberryworks/go-libraw/internal/librawc"
 
 // Callback threading, panics, and lifetime:
 //

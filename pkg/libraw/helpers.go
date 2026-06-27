@@ -3,7 +3,7 @@ package libraw
 import (
 	"errors"
 
-	"github.com/ivanglie/go-libraw/internal/librawc"
+	"github.com/strawberryworks/go-libraw/internal/librawc"
 )
 
 const (

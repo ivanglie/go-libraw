@@ -5,7 +5,7 @@
 CGo bindings for the [LibRaw](https://www.libraw.org) RAW image processing library.
 Linux and macOS only (`amd64`, `arm64`). Requires cgo and LibRaw development headers.
 
-Module: `github.com/ivanglie/go-libraw`  
+Module: `github.com/strawberryworks/go-libraw`  
 Public API: `pkg/libraw/`  
 CGo bridge: `internal/librawc/`  
 Examples: `cmd/`
